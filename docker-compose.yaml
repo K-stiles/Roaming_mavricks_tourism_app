@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  tourism_project:
+    image: db_tourism_project
+    build: ./db
+    container_name: db_tourism_container
+    ports:
+      - "3306:3306"
+    volumes:
+      - tourism-db:/var/lib/mysql
+
+volumes:
+  tourism-db:
