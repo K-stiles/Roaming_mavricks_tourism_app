@@ -31,7 +31,7 @@
 
 
 -- Quering All
-SELECT * FROM tourism_db.bookings ORDER BY bookings.customer_id DESC;
+SELECT * FROM tourism_db.bookings ORDER BY bookings.customer_id DESC; -- move date here
 SELECT * FROM tourism_db.tour_guides;
 SELECT * FROM tourism_db.customers ORDER BY customers.customer_id DESC;
 SELECT * FROM tourism_db.tours;
@@ -48,6 +48,13 @@ SELECT customers.name "Customer Name", customers.address "Address", customers.em
 JOIN tourism_db.bookings ON customers.customer_id = bookings.customer_id
 JOIN tourism_db.tours ON bookings.tour_id = tours.tour_id;
 
+
+-- move date queries
+ALTER TABLE `tourism_db`.`bookings` 
+ADD COLUMN `date` DATETIME NULL DEFAULT NOW() AFTER `tour_id`;
+
+ALTER TABLE `tourism_db`.`tours` 
+DROP COLUMN `date`;
 
 -- VIEWS
 -- CREATE VIEW clientview AS SELECT name FROM customers;
