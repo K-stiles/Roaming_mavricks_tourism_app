@@ -99,7 +99,6 @@
           <div class="container">
             <h1 class="header__text">Login</h1>
             <p class="p__text">Kindly provide the following details</p>
-            <!-- <hr /> -->
 
             <div class="input__filed email">
               <label for="email">
