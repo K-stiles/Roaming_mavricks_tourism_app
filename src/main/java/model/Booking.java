@@ -29,5 +29,33 @@ public class Booking {
         this.dateTime = dateTime;
     }
 
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public int getTourId() {
+        return tourId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public String getTourName() {
+        return tourName;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public String getDateTime() {
+        return dateTime;
+    }
+
 
 }

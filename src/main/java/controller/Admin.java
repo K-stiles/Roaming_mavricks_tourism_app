@@ -46,7 +46,9 @@ public class Admin {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+//            throw new Error(e);
+                        throw new Error(e);
+
         } finally {
             // Close the database resources
             try {
@@ -60,7 +62,9 @@ public class Admin {
                     conn.close();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
+//                throw new Error(e);
+                            throw new Error(e);
+
             }
         }
 
@@ -91,7 +95,7 @@ public class Admin {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new Error(e);
         } finally {
             // Close the database resources
             try {
@@ -105,7 +109,7 @@ public class Admin {
                     conn.close();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
+                throw new Error(e);
             }
         }
 
@@ -129,7 +133,7 @@ public class Admin {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new Error(e);
         } finally {
             // Close the database resources
             try {
@@ -143,7 +147,7 @@ public class Admin {
                     conn.close();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
+                throw new Error(e);
             }
         }
 
@@ -182,7 +186,7 @@ public class Admin {
             return bookings;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new Error(e);
         } finally {
             // Close the database resources
             try {
@@ -196,11 +200,11 @@ public class Admin {
                     conn.close();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
+                throw new Error(e);
             }
         }
 
-        return bookings;
+//        return bookings;
     }
 
     public List<Tour> getAllTours() {
@@ -229,7 +233,7 @@ public class Admin {
             return tours;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new Error(e);
         } finally {
             // Close the database resources
             try {
@@ -243,11 +247,11 @@ public class Admin {
                     conn.close();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
+                throw new Error(e);
             }
         }
 
-        return tours;
+//        return tours;
     }
 
     public List<UserInfo> getAllCustomerDetails() {
@@ -276,7 +280,7 @@ public class Admin {
             return userInfos;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new Error(e);
         } finally {
             // Close the database resources
             try {
@@ -290,11 +294,11 @@ public class Admin {
                     conn.close();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
+                throw new Error(e);
             }
         }
 
-        return userInfos;
+//        return userInfos;
     }
 
     public List<UserInfo> getCustomerDetails(int id) {
@@ -324,7 +328,7 @@ public class Admin {
             return userInfos;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new Error(e);
         } finally {
             // Close the database resources
             try {
@@ -338,11 +342,11 @@ public class Admin {
                     conn.close();
                 }
             } catch (SQLException e) {
-                e.printStackTrace();
+                throw new Error(e);
             }
         }
 
-        return userInfos;
+//        return userInfos;
     }
 
 }

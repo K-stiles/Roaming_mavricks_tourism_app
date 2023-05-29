@@ -115,12 +115,19 @@ public class login extends HttpServlet {
             } else {
 //            out.println("<h2>Login failed. Please try again.</h2>");
 
+                request.setAttribute("LogMsg", "Login failed. Please try again.");
+
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+
             }
 
         }
 //            else{
 //                //do nothing
 //            }
+        request.setAttribute("LogMsg", "Login failed. Please try again.");
+
+        request.getRequestDispatcher("login.jsp").forward(request, response);
 
     }
 

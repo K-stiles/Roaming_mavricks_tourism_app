@@ -22,5 +22,21 @@ public class Tour {
         this.price = price;
     }
 
+    public int getTourId() {
+        return tourId;
+    }
+
+    public String getTourName() {
+        return tourName;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
 
 }
