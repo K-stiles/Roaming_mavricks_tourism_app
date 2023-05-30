@@ -1,0 +1,38 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+
+<header class="navigation__header">
+      <div class="navigation__bar">
+        <a href="#home" class="logo__link">
+          <img
+            src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/logo.svg"
+            alt="brand logo"
+            class="nav__logo"
+          />
+        </a>
+        <nav class="navigation__links">
+          <ul class="ul__navigation__links">
+            <li class="nav__link">
+              <a class="active link" href="#home">Home</a>
+            </li>
+            <li class="nav__link">
+              <a class="link" href="#toursites">Tour sites</a>
+            </li>
+            <li class="nav__link">
+              <a class="link" href="#contactus">Contact us</a>
+            </li>
+            <li class="nav__link">
+              <a class="link" href="#testimonial">Testimonial</a>
+            </li>
+            <li class="nav__link">
+              <a class="link" href="register.jsp">Register</a>
+            </li>
+            <li class="nav__link">
+              <a class="login_btn" href="login.jsp">Login</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+

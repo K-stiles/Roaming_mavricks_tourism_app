@@ -1,0 +1,31 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+          <!-- main card -->
+          <div class="tour__card">
+            <img
+              src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/tourimg.jpg"
+              alt="user profile image"
+              class="tour__img"
+            />
+
+            <div class="abs">
+              <!-- site -->
+              <p class="top__site">Zayaa Mud Mosque</p>
+              <!-- location -->
+              <p class="top__location">Wulugu</p>
+            </div>
+            <div class="tour__img_overlay">
+              <div class="tour__img_overlay_top">
+                <p class="top__site">Zayaa Mud Mosque</p>
+                <span style="display: flex; align-items: center; gap: 8px">
+                  <i class="uil uil-estate"></i>
+                  <p class="top__location">Wulugu</p>
+                </span>
+              </div>
+              <div class="tour__img_overlay_bot">
+                <p class="bot__money">$72.00</p>
+                <button class="bot__btn">Book Now</button>
+              </div>
+            </div>
+          </div>
