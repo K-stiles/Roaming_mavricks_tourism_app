@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.List;
 import model.Tour;
+import model.UserInfo;
 
 /**
  *
@@ -97,11 +98,16 @@ public class registration extends HttpServlet {
                     Admin admin = new Admin();
                     List<Tour> tours = admin.getAllTours();
 
+                    Admin admin2 = new Admin();
+                    List<UserInfo> user = admin2.getCustomerDetails(isUserCreated);
+
                     // Set the userInfos list as an attribute in the request object
                     request.setAttribute("tours", tours);
+//                    request.setAttribute("email", email);
+                    request.setAttribute("user", user);
 
                     // Forward the request to the JSP page
-                    request.getRequestDispatcher("tours.jsp").forward(request, response);
+                    request.getRequestDispatcher("user_dashboard.jsp").forward(request, response);
 
                 } else {
 //            out.println("<h2>Create a new user failed. Please try again.</h2>");

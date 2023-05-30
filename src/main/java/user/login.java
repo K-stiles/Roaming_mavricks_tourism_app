@@ -36,6 +36,33 @@ public class login extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
+//        <%-- Check if the session exists --%>
+        HttpSession session = request.getSession();
+
+        if (session != null && session.getAttribute("customerId") != null) {
+
+            Admin admin = new Admin();
+            List<Tour> tours = admin.getAllTours();
+
+            Admin admin2 = new Admin();
+//            List<UserInfo> user = admin2.getCustomerDetails(session.getAttribute("customerId"));
+            int customerId = (int) session.getAttribute("customerId");
+            List<UserInfo> user = admin2.getCustomerDetails(customerId);
+
+            // Set the userInfos list as an attribute in the request object
+            request.setAttribute("tours", tours);
+//                    request.setAttribute("email", email);
+            request.setAttribute("user", user);
+
+            // Forward the request to the JSP page
+            request.getRequestDispatcher("user_dashboard.jsp").forward(request, response);
+
+        } else if (session != null && session.getAttribute("tourID") != null) {
+
+        } else {
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -104,11 +131,16 @@ public class login extends HttpServlet {
                     Admin admin = new Admin();
                     List<Tour> tours = admin.getAllTours();
 
+                    Admin admin2 = new Admin();
+                    List<UserInfo> user = admin2.getCustomerDetails(isValidUser);
+
                     // Set the userInfos list as an attribute in the request object
                     request.setAttribute("tours", tours);
+//                    request.setAttribute("email", email);
+                    request.setAttribute("user", user);
 
                     // Forward the request to the JSP page
-                    request.getRequestDispatcher("tours.jsp").forward(request, response);
+                    request.getRequestDispatcher("user_dashboard.jsp").forward(request, response);
 
                 }
 
@@ -121,13 +153,11 @@ public class login extends HttpServlet {
 
             }
 
-        }
-//            else{
-//                //do nothing
-//            }
-        request.setAttribute("LogMsg", "Login failed. Please try again.");
+        } else {
+            request.setAttribute("LogMsg", "Login failed. Please try again.");
 
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
 
     }
 
