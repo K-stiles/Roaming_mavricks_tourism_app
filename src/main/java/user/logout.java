@@ -4,7 +4,6 @@
  */
 package user;
 
-import controller.Admin;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,15 +11,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.util.List;
-import model.Tour;
-import model.UserInfo;
 
 /**
  *
  * @author abdulmac
  */
-public class registration extends HttpServlet {
+public class logout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,6 +30,18 @@ public class registration extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
+        // Clear sessions on logout
+        HttpSession session = request.getSession(false); // Retrieve the session without creating a new one
+        if (session != null) {
+            session.invalidate(); // Invalidate the session and remove all associated attributes
+        }
+
+        request.setAttribute("LogMsg2", "Logout successful.");
+
+        // Redirect to the logout success page or login page
+//        response.sendRedirect("login.jsp");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
 
     }
 
@@ -64,67 +72,6 @@ public class registration extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
-        // Get the action parameter from the request
-        String action = request.getParameter("action");
-
-        if (action != null && action.equals("create")) {
-            // check if user exists first
-
-            Admin login = new Admin();
-
-            String name = request.getParameter("name");
-            String address = request.getParameter("address");
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-
-            int userExists = login.UserExists(email);
-
-            if (userExists != -1) {
-//           User exists //  click here to login link
-
-            } else {
-                // Create a new user
-
-                int isUserCreated = createUser(name, address, email, password);
-
-                if (isUserCreated != -1) {
-//            out.println("<h2>Login successful!</h2>");
-                    // Set session value upon successful login
-                    HttpSession session = request.getSession();
-
-                    session.setAttribute("customerId", isUserCreated);
-
-                    Admin admin = new Admin();
-                    List<Tour> tours = admin.getAllTours();
-
-                    Admin admin2 = new Admin();
-                    List<UserInfo> user = admin2.getCustomerDetails(isUserCreated);
-
-                    // Set the userInfos list as an attribute in the request object
-                    request.setAttribute("tours", tours);
-//                    request.setAttribute("email", email);
-                    request.setAttribute("user", user);
-
-                    // Forward the request to the JSP page
-                    request.getRequestDispatcher("user_dashboard.jsp").forward(request, response);
-
-                } else {
-//            out.println("<h2>Create a new user failed. Please try again.</h2>");
-                }
-
-            }
-
-        }
-
-    }
-
-    private int createUser(String name, String address, String email, String password) {
-
-        Admin reg = new Admin();
-
-        return reg.registerCustomer(name, address, email, password);
-
     }
 
     /**

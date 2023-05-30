@@ -1,0 +1,54 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+
+
+ <footer class="footer">
+      <div class="footer__bar">
+        <div class="footer__grid">
+          <!-- col-1 -->
+          <div class="box col1">
+            <p>Logo</p>
+            <p>
+              Our vision is to provide convenience and help increase your sales
+              business.
+            </p>
+          </div>
+
+          <!-- col-2 -->
+          <ul class="box">
+            <li>About</li>
+            <li>How it works</li>
+            <li>Featured</li>
+            <li>Partnership</li>
+            <li>Bussiness Relation</li>
+          </ul>
+
+          <!-- col-3 -->
+          <ul class="box">
+            <li>Community</li>
+            <li>Events</li>
+            <li>Blog</li>
+            <li>liPodcastnk</li>
+            <li>Invite a friend</li>
+          </ul>
+
+          <!-- col-4 -->
+          <ul class="box">
+            <li>Socials</li>
+            <li>Discord</li>
+            <li>Instagram</li>
+            <li>Twitter</li>
+            <li>Facebook</li>
+          </ul>
+        </div>
+
+        <div class="footer__bottom">
+          <p>©2022 Company Name. All rights reserved</p>
+          <div class="footer__bottom_row">
+            <p>Privacy & Policy</p>
+            <p>Terms & Condition</p>
+          </div>
+        </div>
+      </div>
+    </footer>

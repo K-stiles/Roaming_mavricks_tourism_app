@@ -12,11 +12,26 @@
   </head>
 
   <body>
-    <main>
+      
+       <%-- Check if the session exists and the desired attribute is set --%>
+    <% if (session != null && (session.getAttribute("customerId") != null 
+    || session.getAttribute("tourID") != null )) { %>
+        <%-- Session is set, redirect to another JSP --%>
+        <% response.sendRedirect("login"); %>
+    <% } else { %>
+        <%-- Session is not set, display a message or perform other actions --%>
+        <main>
       <section class="auth__section">
+          
         <% if( request.getAttribute("LogMsg") != null ){ %>
 
         <h5 style="color: red"><%= request.getAttribute("LogMsg") %></h5>
+
+        <% } %>
+        
+        <% if( request.getAttribute("LogMsg2") != null ){ %>
+
+        <h5 style="color: cornflowerblue"><%= request.getAttribute("LogMsg2") %></h5>
 
         <% } %>
 
@@ -46,7 +61,7 @@
               <input
                 type="password"
                 placeholder="Enter Password"
-                name="psw"
+                name="password"
                 id="psw"
                 required
               />
@@ -61,5 +76,11 @@
         </form>
       </section>
     </main>
+        
+    <% } %>       
+        
   </body>
 </html>
+
+
+

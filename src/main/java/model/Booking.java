@@ -9,23 +9,31 @@ package model;
  * @author abdulmac
  */
 public class Booking {
+
     private int customerId;
     private int tourId;
     private String customerName;
-        private String tourName;
+    private String tourName;
     private String location;
     private String price;
     private String dateTime;
 
-
-    public Booking(int customerId, int tourId, String customerName,String tourName,
+    public Booking(int customerId, int tourId, String customerName, String tourName,
             String location, String price, String dateTime) {
         this.customerId = customerId;
         this.tourId = tourId;
         this.customerName = customerName;
-                this.tourName = tourName;
+        this.tourName = tourName;
         this.location = location;
         this.price = price;
+        this.dateTime = dateTime;
+    }
+    
+    
+
+    public Booking(int customerId, int tourId, String dateTime) {
+        this.customerId = customerId;
+        this.tourId = tourId;
         this.dateTime = dateTime;
     }
 
@@ -56,6 +64,5 @@ public class Booking {
     public String getDateTime() {
         return dateTime;
     }
-
 
 }

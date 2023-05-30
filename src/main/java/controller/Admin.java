@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.sql.Connection;
+import java.sql.Statement;
 import java.util.List;
 import model.*;
 
@@ -47,7 +48,7 @@ public class Admin {
 
         } catch (SQLException e) {
 //            throw new Error(e);
-                        throw new Error(e);
+            throw new Error(e);
 
         } finally {
             // Close the database resources
@@ -63,7 +64,7 @@ public class Admin {
                 }
             } catch (SQLException e) {
 //                throw new Error(e);
-                            throw new Error(e);
+                throw new Error(e);
 
             }
         }
@@ -160,7 +161,7 @@ public class Admin {
 
         try {
             // Prepare the SQL statement to retrieve user information
-            String sql = "SELECT * FROM tourism_db.customers\n"
+            sql = "SELECT * FROM tourism_db.customers\n"
                     + "JOIN tourism_db.bookings ON customers.customer_id = bookings.customer_id\n"
                     + "JOIN tourism_db.tours ON bookings.tour_id = tours.tour_id ;";
             pStmt = conn.prepareStatement(sql);
@@ -213,7 +214,7 @@ public class Admin {
 
         try {
             // Prepare the SQL statement to retrieve user information
-            String sql = "SELECT * FROM tourism_db.tours;";
+            sql = "SELECT * FROM tourism_db.tours;";
             pStmt = conn.prepareStatement(sql);
 
             // Execute the query
@@ -260,7 +261,7 @@ public class Admin {
 
         try {
             // Prepare the SQL statement to retrieve user information
-            String sql = "SELECT * FROM customers";
+            sql = "SELECT * FROM customers";
             pStmt = conn.prepareStatement(sql);
 
             // Execute the query
@@ -307,7 +308,7 @@ public class Admin {
 
         try {
             // Prepare the SQL statement to retrieve user information
-            String sql = "SELECT * FROM customers WHERE customer_id = ?";
+            sql = "SELECT * FROM customers WHERE customer_id = ?";
             pStmt = conn.prepareStatement(sql);
             pStmt.setInt(1, id);
 
@@ -326,6 +327,88 @@ public class Admin {
             }
 
             return userInfos;
+
+        } catch (SQLException e) {
+            throw new Error(e);
+        } finally {
+            // Close the database resources
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                if (pStmt != null) {
+                    pStmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                throw new Error(e);
+            }
+        }
+
+//        return userInfos;
+    }
+
+    public int bookings(int tour_id, int cust_id) {
+        try {
+            // Prepare the SQL statement to insert a new booking
+            sql = "INSERT INTO bookings (tour_id, customer_id) VALUES (?, ?)";
+            pStmt = conn.prepareStatement(sql);
+            pStmt.setInt(1, tour_id);
+            pStmt.setInt(2, cust_id);
+
+            // Execute the query
+            int rowsAffected = pStmt.executeUpdate();
+
+            // Check if the booking was successfully created
+            if (rowsAffected > 0) {
+                return cust_id;
+            }
+        } catch (SQLException e) {
+            throw new Error(e);
+        } finally {
+            // Close the database resources
+            try {
+                if (pStmt != null) {
+                    pStmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                throw new Error(e);
+            }
+        }
+
+        return -1; // Return -1 if booking creation fails
+    }
+
+    public List<Booking> getBookings(int tour_id, int cust_id) {
+
+        List<Booking> bookings = new ArrayList<>();
+
+        try {
+            // Prepare the SQL statement to retrieve user information
+            sql = "SELECT * FROM bookings WHERE customer_id = ? AND tour_id = ?";
+            pStmt = conn.prepareStatement(sql);
+            pStmt.setInt(1, cust_id);
+            pStmt.setInt(2, tour_id);
+
+            // Execute the query
+            resultSet = pStmt.executeQuery();
+
+            // Process the result set and create UserInfo objects
+            while (resultSet.next()) {
+                int customerId = resultSet.getInt("customer_id");
+                int t_id = resultSet.getInt("tour_id");
+                String date = resultSet.getString("date");
+
+                Booking booking = new Booking(customerId, t_id, date);
+                bookings.add(booking);
+            }
+
+            return bookings;
 
         } catch (SQLException e) {
             throw new Error(e);

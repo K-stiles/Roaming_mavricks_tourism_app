@@ -4,24 +4,23 @@
  */
 package user;
 
+import controller.Admin;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import jakarta.servlet.http.HttpSession;
-
-import controller.*;
 import java.util.List;
+import model.Tour;
 import model.*;
 
 /**
  *
  * @author abdulmac
  */
-public class login extends HttpServlet {
+public class bookings extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,9 +33,8 @@ public class login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
 
-//        <%-- Check if the session exists --%>
+        //        <%-- Check if the session exists --%>
         HttpSession session = request.getSession();
 
         if (session != null && session.getAttribute("customerId") != null) {
@@ -54,12 +52,48 @@ public class login extends HttpServlet {
 //                    request.setAttribute("email", email);
             request.setAttribute("user", user);
 
+            String tourIdParam = request.getParameter("tour_id");
+            if (tourIdParam == null) {
+                request.getRequestDispatcher("user_dashboard.jsp").forward(request, response);
+                return;
+            }
+            int tourId = Integer.parseInt(tourIdParam);
+
+            Admin admin3 = new Admin();
+
+//            List bookingsDetails = admin.getBookings(tourId, customerId);
+            List<Booking> bookingsDetails = admin3.getBookings(tourId, customerId);
+
+//            System.out.println(bookingsDetails.size());
+//            System.out.println("bookings.size()");
+            if (bookingsDetails.isEmpty()) {
+                // The list is empty
+
+                Admin admin4 = new Admin();
+                int bookings = admin4.bookings(tourId, customerId);
+
+//                System.out.println(bookings);
+                if (bookings != -1) {
+
+                    // Set the booking_msg as an attribute in the request object
+                    request.setAttribute("bookingMsg1", "Booking made succesfully");
+
+                } else {
+                    request.setAttribute("bookingMsg2", "Booking failed, pls try again");
+
+                }
+            } else {
+                // The list is not empty
+                request.setAttribute("bookingMsg2", "Destination already booked, pls choose elsewhere");
+
+            }
+
             // Forward the request to the JSP page
             request.getRequestDispatcher("user_dashboard.jsp").forward(request, response);
 
-        } else if (session != null && session.getAttribute("tourID") != null) {
-
         } else {
+            request.setAttribute("LogMsg", "Login failed. Please try again.");
+
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
 
@@ -78,6 +112,7 @@ public class login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
     }
 
     /**
@@ -91,81 +126,7 @@ public class login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        // Get the action parameter from the request
-        String action = request.getParameter("action");
-
-        if (action != null && action.equals("login")) {
-            // Create a new user
-
-            // Get the email and password from the request parameters
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-            String role = request.getParameter("role");
-
-            // Perform the login validation
-            int isValidUser = validateLogin(email, password, role);
-
-            if (isValidUser != -1) {
-//            out.println("<h2>Login successful!</h2>");
-//             go to customer or admin dashboard
-                // Set session value upon successful login
-                HttpSession session = request.getSession();
-                if (role.equals("tour_guide")) {
-
-                    session.setAttribute("tourID", isValidUser);
-
-                    Admin admin = new Admin();
-                    List<Booking> bookings = admin.getAllBookings();
-
-                    // Set the userInfos list as an attribute in the request object
-                    request.setAttribute("bookings", bookings);
-
-                    // Forward the request to the JSP page
-                    request.getRequestDispatcher("bookingList.jsp").forward(request, response);
-
-                } else {
-
-                    session.setAttribute("customerId", isValidUser);
-
-                    Admin admin = new Admin();
-                    List<Tour> tours = admin.getAllTours();
-
-                    Admin admin2 = new Admin();
-                    List<UserInfo> user = admin2.getCustomerDetails(isValidUser);
-
-                    // Set the userInfos list as an attribute in the request object
-                    request.setAttribute("tours", tours);
-//                    request.setAttribute("email", email);
-                    request.setAttribute("user", user);
-
-                    // Forward the request to the JSP page
-                    request.getRequestDispatcher("user_dashboard.jsp").forward(request, response);
-
-                }
-
-            } else {
-//            out.println("<h2>Login failed. Please try again.</h2>");
-
-                request.setAttribute("LogMsg", "Login failed. Please try again.");
-
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-
-            }
-
-        } else {
-            request.setAttribute("LogMsg", "Login failed. Please try again.");
-
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }
-
-    }
-
-    private int validateLogin(String email, String password, String role) {
-
-        Admin login = new Admin();
-
-        return login.loginController(email, password, role);
+        processRequest(request, response);
 
     }
 
