@@ -147,6 +147,8 @@ input[type="password"]:focus {
   height: 40px;
   object-fit: cover;
   border-radius: 50%;
+  float: right;
+  display: block;
 }
 .username {
   font-size: 1rem;
