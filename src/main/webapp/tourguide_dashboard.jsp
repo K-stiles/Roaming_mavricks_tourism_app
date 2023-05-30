@@ -4,234 +4,213 @@ admin --%> <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <style>
-      :root {
-        --aside: #fff;
-        --board: #f5f5f5;
-        --primary: #610c63;
-        --slate: #f1f1f1;
-        --dark: #222;
-      }
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-      }
-      body {
-        height: 100vh;
-        width: 100vw;
-        overflow-x: hidden;
-        font-family: sans-serif;
-      }
-      .auth__section {
-        padding: 1rem;
-        width: 80%;
-        margin: 10% auto;
-      }
-      .container {
-        padding: 2rem;
-        width: 40%;
-        margin: auto;
-        border-radius: 8px;
-      }
-      .header__text {
-        font-size: 3rem;
-        color: #222;
-      }
-      .p__text {
-        font-size: 1rem;
-        color: #222;
-        margin: 0.5rem 0;
-      }
-      .input__filed label {
-        font-size: 1rem;
-        color: #222;
-      }
-      .email {
-        margin-top: 2rem;
-      }
-      input[type="text"],
-      input[type="password"] {
-        width: 100%;
-        border-radius: 4px;
-        padding: 0.9rem;
-        margin: 5px 0 22px 0;
-        display: inline-block;
-        border: 1px solid #610c63;
-        outline: none;
-        background: #fff;
-      }
-      .btn {
-        color: white;
-        border-radius: 4px;
-        font-size: 1.1rem;
-        font-weight: 700;
-        padding: 16px 20px;
-        margin: 8px 0;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        width: 100%;
-        opacity: 0.9;
-        background-color: #610c63;
-      }
-
-      .btn:hover {
-        opacity: 1;
-      }
-
-      input[type="text"]:focus,
-      input[type="password"]:focus {
-        background-color: #ecdeec;
-        outline: none;
-      }
-
-      /* dashboard */
-      .dashboard_body {
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-columns: 1fr 5fr;
-      }
-
-      .aside {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding: 0 0 0 0.5px;
-        /* background-color: teal; */
-        background-color: var(--aside);
-      }
-      .dashb {
-        width: 100%;
-        padding: 1rem;
-        background-color: var(--board);
-      }
-      .user__profile {
-        width: 85%;
-        margin: 1rem auto 0 auto;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        padding: 0.5rem;
-        border-radius: 4px;
-        background-color: var(--slate);
-      }
-      .profile {
-        width: 40px;
-        height: 40px;
-        object-fit: cover;
-      }
-      .username {
-        font-size: 1rem;
-        font-weight: 600;
-        text-transform: capitalize;
-      }
-      li,
-      a {
-        display: block;
-        list-style: none;
-        text-decoration: none;
-        color: inherit;
-      }
-      .board {
-        margin-top: 2.5rem;
-      }
-      .board_title {
-        font-size: 1.2rem;
-        margin-left: 1rem;
-        font-weight: 600;
-      }
-      .board_tile {
-        display: flex;
-        gap: 8px;
-        padding: 1rem;
-        margin: 1rem 0;
-        cursor: pointer;
-        color: var(--slate);
-        position: relative;
-        border-left: 4px solid var(--aside);
-        background-color: var(--primary);
-      }
-      .board_tile.active {
-        color: var(--dark);
-        border-left: 4px solid var(--primary);
-        background-color: var(--slate);
-      }
-      .tile__text {
-        text-transform: capitalize;
-        font-size: 1rem;
-        font-weight: bold;
-      }
-      .tile__divider {
-        width: 95%;
-        height: 1px;
-        background-color: #bbb;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-      }
-      .logout {
-        margin-top: auto;
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+    <link
+      rel="stylesheet"
+      href="http://localhost:8080/Roaming_mavricks_tourism_app/styles/styles.css"
+    />
     <title>Tourism App | Dashboard</title>
   </head>
   <body>
     <!-- A -->
     <main class="dashboard_body">
       <aside class="aside">
-        <div>
-          <div class="user__profile">
-            <!-- image -->
-            <!-- <img
-              src="${pageContext.request.contextPath}/assets/userprofile.png"
+        <div class="aside__flex">
+          <div>
+            <div class="user__profile">
+              <!-- <img
+              src="https://plus.unsplash.com/premium_photo-1677002756692-faeffee45d7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
               alt="user profile image"
               class="profile"
             /> -->
-            <div>
-              <h1 class="username">jennifer doe</h1>
-              <p>examplejones@gmail.com</p>
+              <img
+                src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/userprofile.png"
+                alt="user profile image"
+                class="profile"
+              />
+              <div class="user__profile__info">
+                <h1 class="username">jennifer doe</h1>
+                <span> examplejones@gmail.com </span>
+              </div>
             </div>
+
+            <ul class="board">
+              <p class="board_title">Task Dashboard</p>
+              <!-- Tile 1-->
+              <li>
+                <a href="#" class="board_tile active">
+                  <i class="uil uil-analytics tile__icon"></i>
+                  <p class="tile__text">bookings</p>
+                </a>
+              </li>
+              <!-- Tile 2-->
+              <li>
+                <a href="#" class="board_tile">
+                  <i class="uil uil-map"></i>
+                  <p class="tile__text">tour</p>
+                </a>
+              </li>
+            </ul>
           </div>
 
-          <ul class="board">
-            <p class="board_title">Task Dashboard</p>
-            <!-- Tile 1-->
-            <li>
-              <a href="#" class="board_tile active">
-                <p>icon</p>
-                <p class="tile__text">bookings</p>
-              </a>
-            </li>
-            <!-- Tile 2-->
-            <li>
-              <a href="#" class="board_tile">
-                <p>icon</p>
-                <p class="tile__text">tour</p>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="logout">
-          <!-- Tile 3-->
-          <div class="board_tile">
-            <p>icon</p>
-            <p class="tile__text">Logout</p>
+          <div class="logout">
+            <!-- Tile 3-->
+            <div class="board_tile">
+              <i class="uil uil-signout"></i>
+              <p class="tile__text">Logout</p>
+            </div>
           </div>
         </div>
       </aside>
+
       <!-- D -->
-      <section class="dashb">
-        <!-- nav -->
-        <nav>
-          <h1 class="header__text">Booking</h1>
-        </nav>
+      <section class="dashboard">
+        <!-- dashboard__header -->
+        <header class="dashboard__header">
+          <nav class="dashboard__navbar">
+            <h1 class="dashboard_header__text">Booking</h1>
+            <div class="nav__left">
+              <i class="uil uil-bell"></i>
+              <i class="uil uil-search"></i>
+              <img
+                src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/userprofile.png"
+                alt="user profile image"
+                class="profile"
+              />
+            </div>
+          </nav>
+        </header>
+
+        <div class="dashboard__content">
+          <div class="filter__section">
+            <button class="filter__btn">Filter</button>
+          </div>
+          <table id="table">
+            <tr class="table__header">
+              <th class="table__header_box">
+                <!-- <input
+                  type="checkbox"
+                  id="check_box"
+                  onclick="Function()"
+                  class="checkbox"
+                  checked="checked"
+                /> -->
+                <label class="box__container">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+              </th>
+              <th class="table__header_row">Customer Name</th>
+              <th class="table__header_row">Customer Address</th>
+              <th class="table__header_row">Email</th>
+              <th class="table__header_row">Tour Name</th>
+              <th class="table__header_row">location name</th>
+              <th class="table__header_row">Price</th>
+              <th class="table__header_row">booking Date</th>
+            </tr>
+
+            <!-- content -->
+            <!-- REMOVE && LOOP TABLE CONTENT HERE -->
+            <tr class="table__content">
+              <td class="table__box">
+                <label class="box__container">
+                  <input type="checkbox" checked="checked" />
+                  <span class="checkmark"></span>
+                </label>
+              </td>
+              <td>Jennifer Doe</td>
+              <td>McCarthy Hill</td>
+              <td>jennifer@gmail.com</td>
+              <td>tour name</td>
+              <td>central region</td>
+              <td>GHC 290</td>
+              <td>July 1st 2023</td>
+            </tr>
+
+            <tr class="table__content">
+              <td class="table__box">
+                <label class="box__container">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+              </td>
+              <td>Jennifer Doe</td>
+              <td>McCarthy Hill</td>
+              <td>jennifer@gmail.com</td>
+              <td>tour name</td>
+              <td>central region</td>
+              <td>GHC 290</td>
+              <td>July 1st 2023</td>
+            </tr>
+            <tr class="table__content">
+              <td class="table__box">
+                <label class="box__container">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+              </td>
+              <td>Jennifer Doe</td>
+              <td>McCarthy Hill</td>
+              <td>jennifer@gmail.com</td>
+              <td>tour name</td>
+              <td>central region</td>
+              <td>GHC 290</td>
+              <td>July 1st 2023</td>
+            </tr>
+
+            <tr class="table__content">
+              <td class="table__box">
+                <label class="box__container">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+              </td>
+              <td>Jennifer Doe</td>
+              <td>McCarthy Hill</td>
+              <td>jennifer@gmail.com</td>
+              <td>tour name</td>
+              <td>central region</td>
+              <td>GHC 290</td>
+              <td>July 1st 2023</td>
+            </tr>
+            <tr class="table__content">
+              <td class="table__box">
+                <label class="box__container">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+              </td>
+              <td>Jennifer Doe</td>
+              <td>McCarthy Hill</td>
+              <td>jennifer@gmail.com</td>
+              <td>tour name</td>
+              <td>central region</td>
+              <td>GHC 290</td>
+              <td>July 1st 2023</td>
+            </tr>
+
+            <tr class="table__content">
+              <td class="table__box">
+                <label class="box__container">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+              </td>
+              <td>Jennifer Doe</td>
+              <td>McCarthy Hill</td>
+              <td>jennifer@gmail.com</td>
+              <td>tour name</td>
+              <td>central region</td>
+              <td>GHC 290</td>
+              <td>July 1st 2023</td>
+            </tr>
+            <!-- content End -->
+          </table>
+        </div>
       </section>
     </main>
   </body>
 </html>
-
-<!-- 6 slides
-10mins-15mins -->

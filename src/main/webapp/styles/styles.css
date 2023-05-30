@@ -1,0 +1,362 @@
+:root {
+  --aside: #fff;
+  --board: #f5f5f5;
+  --primary: #610c63;
+  --primary-light: #ecdeec;
+  --divider: #ddd;
+  --slate: #f1f1f1;
+  --dark: #222;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  width: 100vw;
+  /* overflow: hidden; */
+  /* overflow-x: hidden; */
+  overflow-y: scroll;
+  font-family: sans-serif;
+  background-color: var(--board);
+}
+.auth__section {
+  padding: 1rem;
+  width: 80%;
+  margin: 10% auto;
+}
+.container {
+  padding: 2rem;
+  width: 40%;
+  margin: auto;
+  border-radius: 8px;
+}
+.header__text {
+  font-size: 3rem;
+  color: #222;
+}
+.p__text {
+  font-size: 1rem;
+  color: #222;
+  margin: 0.5rem 0;
+}
+.input__filed label {
+  font-size: 1rem;
+  color: #222;
+}
+.email {
+  margin-top: 2rem;
+}
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  border-radius: 4px;
+  padding: 0.9rem;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: 1px solid #610c63;
+  outline: none;
+  background: #fff;
+}
+.btn {
+  color: white;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  background-color: #610c63;
+}
+.btn:hover {
+  opacity: 1;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #ecdeec;
+  outline: none;
+}
+
+/* dashboard */
+.dashboard_body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.aside {
+  height: 100%;
+  width: 260px;
+  padding: 6px 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transition: all 0.5s ease;
+  background-color: var(--aside);
+}
+.dashboard {
+  position: relative;
+  height: 100%;
+  left: 260px;
+  /* width: 100%; */
+  width: calc(100% - 260px);
+  transition: all 0.5s ease;
+  background-color: var(--board);
+}
+.aside__flex {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.user__profile {
+  width: 95%;
+  max-width: 250px;
+  border-radius: 50%;
+  margin: 1rem auto 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: var(--slate);
+}
+img .profile {
+  width: 85%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.user__profile__info {
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.profile {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+.username {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+li,
+a {
+  display: block;
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+}
+.board {
+  margin-top: 2.5rem;
+}
+.board_title {
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  font-weight: 600;
+}
+.board_tile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  cursor: pointer;
+  position: relative;
+  color: var(--dark);
+  background-color: var(--primary-light);
+  /* background-color: var(--slate); */
+}
+.board_tile.active {
+  color: var(--slate);
+  background-color: var(--primary);
+}
+i {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.tile__text {
+  text-transform: capitalize;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.logout {
+  margin-top: auto;
+}
+.dashboard__header {
+  border-bottom: 2px solid var(--divider);
+}
+.dashboard__navbar {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem;
+}
+.dashboard_header__text {
+  font-size: 2rem;
+  color: var(--dark);
+}
+.nav__left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.dashboard__content {
+  width: 100%;
+  height: 100%;
+  padding: 1rem 2rem 2rem 2rem;
+}
+
+.filter__section {
+  width: 100%;
+  margin: 0.6rem 0;
+  padding: 0.3rem 5rem 0.3rem 0.3rem;
+  display: flex;
+  justify-content: end;
+}
+.filter__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 0.6rem 2rem;
+  border-radius: 4px;
+  color: var(--board);
+  font-weight: 500;
+  background-color: var(--primary);
+}
+
+/* table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: normal;
+}
+table tr.table__header {
+  text-transform: uppercase;
+  background-color: var(--primary);
+}
+.table__header_row {
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: var(--board);
+  width: 10%;
+}
+.table__header_box {
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: var(--board);
+  width: 2%;
+}
+
+table tr {
+  border-bottom: 1px solid var(--divider);
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: color 0.5s ease-in;
+}
+table tr:hover {
+  color: var(--primary);
+  background-color: var(--primary-light);
+}
+table tr.table__header:hover {
+  color: var(--board);
+  background-color: var(--primary);
+}
+
+table,
+th,
+td {
+  /* border: 1px solid var(--divider); */
+  text-align: left;
+  padding: 10px;
+}
+
+/* Check Box */
+/* input ~ .checkbox {
+    background: red;
+  }
+  input:checked ~ .checkbox {
+    background: red;
+  }
+  input[type="checkbox"] {
+    border: none;
+  } */
+/* Customize the label (the container) */
+.box__container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 1rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.box__container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: -0.75rem;
+  left: -8px;
+  height: 25px;
+  width: 25px;
+  background-color: var(--primary-light);
+}
+
+/* On mouse-over, add a grey background color */
+/* .box__container:hover input ~ .checkmark {
+    background-color: var(--board);
+  } */
+
+/* When the checkbox is checked, add a --primary background */
+.box__container input:checked ~ .checkmark {
+  background-color: var(--primary);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.box__container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.box__container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 8px;
+  border: solid var(--board);
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

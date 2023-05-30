@@ -1,0 +1,95 @@
+.dashboard_header__text {
+  color: var(--primary);
+}
+.tour__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+.tour__card {
+  width: 100%;
+  height: 40vh;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.tour__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.top__site {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.top__location {
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.bot__money {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.bot__btn {
+  border-radius: 4px;
+  font-size: 0.8rem;
+  padding: 6px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: var(--board);
+}
+.tour__img_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--board);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+}
+.tour__img_overlay:hover {
+  opacity: 1;
+}
+.tour__img_overlay > .tour__img_overlay_top {
+  transform: translateY(-20px);
+  transition: transform 0.25s ease;
+}
+.tour__img_overlay:hover > .tour__img_overlay_top {
+  transform: translateY(0px);
+}
+.tour__img_overlay_top {
+  margin: 8px auto 0 8px;
+}
+.tour__img_overlay_bot {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tour__img_overlay > .tour__img_overlay_bot {
+  transform: translateY(20px);
+  transition: transform 0.25s ease;
+}
+.tour__img_overlay:hover > .tour__img_overlay_bot {
+  transform: translateY(0px);
+}
+
+/* abs */
+.abs {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5%;
+  color: var(--board);
+  padding: 1rem;
+}
