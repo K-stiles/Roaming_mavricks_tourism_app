@@ -25,16 +25,16 @@ admin --%> <%@page contentType="text/html" pageEncoding="UTF-8"%>
         <div class="aside__flex">
           <div>
             <div class="user__profile">
-              <!-- <img
-                  src="https://plus.unsplash.com/premium_photo-1677002756692-faeffee45d7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                  alt="user profile image"
-                  class="profile"
-                /> -->
               <img
-                src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/userprofile.png"
+                src="https://plus.unsplash.com/premium_photo-1677002756692-faeffee45d7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
                 alt="user profile image"
                 class="profile"
               />
+              <!-- <img
+                src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/userprofile.png"
+                alt="user profile image"
+                class="profile"
+              /> -->
               <div class="user__profile__info">
                 <h1 class="username">jennifer doe</h1>
                 <span> examplejones@gmail.com </span>
@@ -79,8 +79,13 @@ admin --%> <%@page contentType="text/html" pageEncoding="UTF-8"%>
             <div class="nav__left">
               <i class="uil uil-bell"></i>
               <i class="uil uil-search"></i>
-              <img
+              <!-- <img
                 src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/userprofile.png"
+                alt="user profile image"
+                class="profile"
+              /> -->
+              <img
+                src="https://plus.unsplash.com/premium_photo-1677002756692-faeffee45d7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
                 alt="user profile image"
                 class="profile"
               />
@@ -97,6 +102,7 @@ admin --%> <%@page contentType="text/html" pageEncoding="UTF-8"%>
                 alt="user profile image"
                 class="tour__img"
               />
+
               <div class="abs">
                 <!-- site -->
                 <p class="top__site">Zayaa Mud Mosque</p>
