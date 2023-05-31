@@ -32,8 +32,9 @@ body {
   /* overflow-x: hidden; */
   overflow-y: scroll;
   font-family: "Inter", sans-serif;
-  background: var(--board);
+  background: var(--primary-light);
   position: relative;
+  scroll-behavior: smooth;
 }
 a {
   text-decoration: none;
@@ -42,6 +43,15 @@ a {
 }
 
 /* Navigation Bar */
+.navigation__header {
+  background-color: var(--primary-light);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  transition: all 0.5s ease;
+}
 .navigation__bar {
   width: 90%;
   margin: auto;
@@ -49,8 +59,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--board);
-  /* background-color: red; */
+  /* background: var(--board); */
 }
 
 .navigation__links ul {
@@ -83,7 +92,7 @@ a {
 .navigation__links ul li .login_btn {
   border-radius: 4px;
   color: var(--primary);
-  background-color: var(--slate);
+  background-color: var(--primary-light);
   border: 2px solid var(--primary);
   transition: color 0.3s ease, background-color 0.3s ease;
 }
@@ -118,6 +127,14 @@ a {
 .main__body {
   height: 100%;
   width: 100%;
+  background-color: var(--board);
+}
+.hero__body {
+  height: 100%;
+  width: 100%;
+  margin-top: 70px;
+  padding-top: 5rem;
+  background-color: var(--primary-light);
 }
 
 /* Footer */
@@ -172,7 +189,7 @@ a {
 /* body section */
 .section {
   width: 90%;
-  height: 90vh;
+  /* height: 90vh; */
   margin: auto;
   padding: 2rem 1rem;
   display: flex;
@@ -180,12 +197,13 @@ a {
   align-items: center;
   column-gap: 1rem;
   justify-content: space-between;
+  scroll-margin: 160px;
+  /* background-color: red; */
 }
 
 .left-col {
   width: 70%;
   margin-bottom: 3rem;
-  /* background-color: red; */
 }
 
 .body__img_container {
@@ -237,7 +255,6 @@ a {
   padding: 0.5rem 2rem;
   border-radius: 4px;
   color: var(--primary);
-  border: none;
   background-color: var(--primary-light);
   border: 2px solid var(--transparent);
   font-weight: 500;
@@ -285,10 +302,11 @@ a {
   margin: auto;
   margin-bottom: 1rem;
   padding: 2rem 1rem;
+  scroll-margin: 60px;
 }
-.mt {
+/* .mt {
   margin-top: 12rem;
-}
+} */
 
 .sites__header {
   text-align: center;
@@ -473,9 +491,9 @@ a {
   .hero__img {
     width: 450px;
   }
-  .mt {
+  /* .mt {
     margin-top: 1rem;
-  }
+  } */
 }
 
 @media (min-width: 1024px) {

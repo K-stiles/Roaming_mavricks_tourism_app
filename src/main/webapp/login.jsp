@@ -10,28 +10,25 @@
     />
     <title>Tourism App | Login</title>
   </head>
-
   <body>
-      
-       <%-- Check if the session exists and the desired attribute is set --%>
-    <% if (session != null && (session.getAttribute("customerId") != null 
-    || session.getAttribute("tourID") != null )) { %>
-        <%-- Session is set, redirect to another JSP --%>
-        <% response.sendRedirect("login"); %>
-    <% } else { %>
-        <%-- Session is not set, display a message or perform other actions --%>
-        <main>
+    <nav class="auth_nav"><a class="auth__home" href="index.jsp">Home</a></nav>
+
+    <%-- Check if the session exists and the desired attribute is set --%> <% if
+    (session != null && (session.getAttribute("customerId") != null ||
+    session.getAttribute("tourID") != null )) { %> <%-- Session is set, redirect
+    to another JSP --%> <% response.sendRedirect("login"); %> <% } else { %>
+    <%-- Session is not set, display a message or perform other actions --%>
+    <main>
       <section class="auth__section">
-          
         <% if( request.getAttribute("LogMsg") != null ){ %>
 
         <h5 style="color: red"><%= request.getAttribute("LogMsg") %></h5>
 
-        <% } %>
-        
-        <% if( request.getAttribute("LogMsg2") != null ){ %>
+        <% } %> <% if( request.getAttribute("LogMsg2") != null ){ %>
 
-        <h5 style="color: cornflowerblue"><%= request.getAttribute("LogMsg2") %></h5>
+        <h5 style="color: cornflowerblue">
+          <%= request.getAttribute("LogMsg2") %>
+        </h5>
 
         <% } %>
 
@@ -73,14 +70,14 @@
 
             <button type="submit" class="btn">Login</button>
           </div>
+
+          <div class="account">
+            <p>Don't have an account? <a href="register.jsp">Register</a>.</p>
+          </div>
         </form>
       </section>
     </main>
-        
-    <% } %>       
-        
+
+    <% } %>
   </body>
 </html>
-
-
-

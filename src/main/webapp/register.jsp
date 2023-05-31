@@ -12,6 +12,8 @@
     <title>Tourism App | Register</title>
   </head>
   <body>
+    <nav class="auth_nav"><a class="auth__home" href="index.jsp">Home</a></nav>
+
     <main>
       <section class="auth__section">
         <!-- form -->
@@ -62,6 +64,10 @@
 
             <p>I agree to terms & conditions</p>
             <button type="submit" class="btn">Register Account</button>
+          </div>
+
+          <div class="account">
+            <p>Already have an account? <a href="login.jsp">Sign in</a>.</p>
           </div>
         </form>
       </section>

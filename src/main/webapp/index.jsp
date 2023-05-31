@@ -36,33 +36,35 @@
         />
       </div>
 
-      <!-- hero -->
-      <header id="home" class="section">
-        <div class="left-col">
-          <p class="p_text">Discover incredible stops along your path</p>
-          <h1 class="h_text">Find all of your TOURISM PLANS in one spot.</h1>
-          <p class="desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation
-          </p>
-          <div class="btn__rows">
-            <button class="hero__btn">Book Now</button>
-            <button class="hero__outline_btn">See all tourist sites</button>
+      <div class="hero__body">
+        <!-- hero -->
+        <header id="home" class="section">
+          <div class="left-col">
+            <p class="p_text">Discover incredible stops along your path</p>
+            <h1 class="h_text">Find all of your TOURISM PLANS in one spot.</h1>
+            <p class="desc">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation
+            </p>
+            <div class="btn__rows">
+              <button class="hero__btn">Book Now</button>
+              <button class="hero__outline_btn">See all tourist sites</button>
+            </div>
           </div>
-        </div>
 
-        <div class="right-col">
-          <img
-            src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/hero_image.png"
-            alt=""
-            class="hero__img"
-          />
-        </div>
-      </header>
+          <div class="right-col">
+            <img
+              src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/hero_image.png"
+              alt=""
+              class="hero__img"
+            />
+          </div>
+        </header>
+      </div>
 
       <!-- Tour Sites -->
-      <section id="toursites" class="sites__section mt">
+      <section id="toursites" class="sites__section">
         <div class="sites__header">
           <h1 class="sites__title">Tour Sites</h1>
           <p class="sites__p">
