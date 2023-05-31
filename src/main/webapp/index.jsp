@@ -48,8 +48,14 @@
               enim ad minim veniam, quis nostrud exercitation
             </p>
             <div class="btn__rows">
-              <button class="hero__btn">Book Now</button>
-              <button class="hero__outline_btn">See all tourist sites</button>
+              <a href="login.jsp"
+                ><button class="hero__btn">Book Now</button></a
+              >
+              <a class="link" href="#toursites"
+                ><button class="hero__outline_btn">
+                  See all tourist sites
+                </button></a
+              >
             </div>
           </div>
 
