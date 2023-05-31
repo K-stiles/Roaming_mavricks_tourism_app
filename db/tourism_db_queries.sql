@@ -44,7 +44,7 @@ JOIN tourism_db.tours ON bookings.tour_id = tours.tour_id ;
 
 
 -- Query Joint customers,bookings and tours(Booking Table UI)
-SELECT customers.name "Customer Name", customers.address "Address", customers.email "Email",tours.name "Tour Name",tours.location "Location Name",tours.price "Booking Price",tours.date "Booking Date" FROM tourism_db.customers
+SELECT customers.name "Customer Name", customers.address "Address", customers.email "Email",tours.name "Tour Name",tours.location "Location Name",tours.img_url "Location Image Url",tours.price "Booking Price" FROM tourism_db.customers
 JOIN tourism_db.bookings ON customers.customer_id = bookings.customer_id
 JOIN tourism_db.tours ON bookings.tour_id = tours.tour_id;
 

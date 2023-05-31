@@ -101,4 +101,35 @@ CREATE TABLE `tours` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+
+--
+-- Table structure for table `tours`
+--
+
+DROP TABLE IF EXISTS `tours`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tours` (
+  `tour_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `location` varchar(45) DEFAULT NULL,
+  `price` varchar(45) DEFAULT NULL,
+  `tour_guide_id` int(11) DEFAULT NULL,
+  `img_url` varchar(10000) DEFAULT NULL,
+  PRIMARY KEY (`tour_id`),
+  KEY `FK_TOUR_GUIDES_idx` (`tour_guide_id`),
+  CONSTRAINT `FK_TOUR_GUIDES` FOREIGN KEY (`tour_guide_id`) REFERENCES `tour_guides` (`tour_guide_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
 -- Dump completed on 2023-05-25 10:07:05
