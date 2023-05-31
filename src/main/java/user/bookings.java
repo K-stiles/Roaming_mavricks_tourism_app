@@ -52,6 +52,12 @@ public class bookings extends HttpServlet {
 //                    request.setAttribute("email", email);
             request.setAttribute("user", user);
 
+//            to avoid null errors on return
+            Admin admin6 = new Admin();
+            List<Tour> userTours = admin6.getUserTours(customerId);
+
+            request.setAttribute("userTours", userTours);
+
             String tourIdParam = request.getParameter("tour_id");
             if (tourIdParam == null) {
                 request.getRequestDispatcher("user_dashboard.jsp").forward(request, response);
@@ -72,6 +78,11 @@ public class bookings extends HttpServlet {
                 Admin admin4 = new Admin();
                 int bookings = admin4.bookings(tourId, customerId);
 
+                Admin admin5 = new Admin();
+                userTours = admin5.getUserTours(customerId);
+
+                request.setAttribute("userTours", userTours);
+
 //                System.out.println(bookings);
                 if (bookings != -1) {
 
@@ -83,7 +94,7 @@ public class bookings extends HttpServlet {
 
                 }
             } else {
-                // The list is not empty
+                // The list is q empty
                 request.setAttribute("bookingMsg2", "Destination already booked, pls choose elsewhere");
 
             }

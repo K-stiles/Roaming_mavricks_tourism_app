@@ -49,10 +49,15 @@ public class login extends HttpServlet {
             int customerId = (int) session.getAttribute("customerId");
             List<UserInfo> user = admin2.getCustomerDetails(customerId);
 
+            Admin admin3 = new Admin();
+            List<Tour> userTours = admin3.getUserTours(customerId);
+
             // Set the userInfos list as an attribute in the request object
             request.setAttribute("tours", tours);
 //                    request.setAttribute("email", email);
             request.setAttribute("user", user);
+
+            request.setAttribute("userTours", userTours);
 
             // Forward the request to the JSP page
             request.getRequestDispatcher("user_dashboard.jsp").forward(request, response);
@@ -134,10 +139,15 @@ public class login extends HttpServlet {
                     Admin admin2 = new Admin();
                     List<UserInfo> user = admin2.getCustomerDetails(isValidUser);
 
+                    Admin admin3 = new Admin();
+                    List<Tour> userTours = admin3.getUserTours(isValidUser);
+
                     // Set the userInfos list as an attribute in the request object
                     request.setAttribute("tours", tours);
 //                    request.setAttribute("email", email);
                     request.setAttribute("user", user);
+
+                    request.setAttribute("userTours", userTours);
 
                     // Forward the request to the JSP page
                     request.getRequestDispatcher("user_dashboard.jsp").forward(request, response);

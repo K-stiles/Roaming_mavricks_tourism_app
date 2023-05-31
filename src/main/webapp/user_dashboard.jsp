@@ -22,6 +22,7 @@ admin --%>
             rel="stylesheet"
             href="http://localhost:8080/Roaming_mavricks_tourism_app/styles/userDashboard.css"
             />
+        <link href='https://unpkg.com/css.gg@2.0.0/icons/css/check.css' rel='stylesheet'>
         <title>Tourism App | User</title>
     </head>
     <body>
@@ -30,6 +31,7 @@ admin --%>
         <%-- Retrieve the userInfos list from the request object --%>
         <% 
             List<Tour> tours = (List<Tour>) request.getAttribute("tours"); 
+            List<Tour> userTours = (List<Tour>) request.getAttribute("userTours"); 
             List<UserInfo> user = (List<UserInfo>) request.getAttribute("user"); 
         %>
         <!-- A -->
@@ -83,10 +85,10 @@ admin --%>
                     <div class="logout">
                         <!-- Tile 3-->
                         <a href="logout" >
-                        <div class="board_tile">
-                            <i class="uil uil-signout"></i>
-                            <p class="tile__text">Logout</p>
-                        </div>
+                            <div class="board_tile">
+                                <i class="uil uil-signout"></i>
+                                <p class="tile__text">Logout</p>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -104,7 +106,7 @@ admin --%>
                         <h5 style="color: green"><%= request.getAttribute("bookingMsg1") %></h5>
 
                         <% } %>
-                        
+
 
                         <% if( request.getAttribute("bookingMsg2") != null ){ %>
 
@@ -162,10 +164,29 @@ admin --%>
                                 </div>
                                 <div class="tour__img_overlay_bot">
                                     <p class="bot__money">$<%= tour.getPrice() %></p>
+
+                                    <%-- Check if the element exists in the array --%>
+                                    <% boolean exists = false;
+                                        for (Tour userTour : userTours) {
+                                            if (userTour.getTourId() == tour.getTourId()) {
+                                              exists = true;
+                                                break;
+                                            }
+                                        }
+                                     if(exists == true){ %>
+                                     
+                                    
+                                     <p class="board_tile active"><span class="gg-check" style="display: inline;"></span> Booked</p>
+                                    
+                                    <% }else{ %>
+
                                     <form action="bookings" method="post">
-                                    <button class="bot__btn">Book Now</button>
-                                    <input type="hidden" name="tour_id" value="<%= tour.getTourId() %>" />
+                                        <button class="bot__btn">Book Now</button>
+                                        <input type="hidden" name="tour_id" value="<%= tour.getTourId() %>" />
                                     </form>
+
+                                    <% } %>
+
                                     <!--<a href="bookings?tour_id=<--% = tour.getTourId() %>" class="bot__btn" style="color: black">Book Now</a>-->
                                 </div>
                             </div>

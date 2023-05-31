@@ -432,4 +432,54 @@ public class Admin {
 //        return userInfos;
     }
 
+    public List<Tour> getUserTours(int cust_id) {
+
+        List<Tour> tours = new ArrayList<>();
+
+        try {
+            // Prepare the SQL statement to retrieve user information
+            sql = "SELECT * FROM bookings \n"
+                    + "JOIN tourism_db.tours ON tours.tour_id = bookings.tour_id\n"
+                    + "WHERE customer_id = ?";
+            pStmt = conn.prepareStatement(sql);
+            pStmt.setInt(1, cust_id);
+
+            // Execute the query
+            resultSet = pStmt.executeQuery();
+
+            // Process the result set and create UserInfo objects
+            while (resultSet.next()) {
+                int tourId = resultSet.getInt("tour_id");
+                String name = resultSet.getString("name");
+                String location = resultSet.getString("location");
+                String price = resultSet.getString("price");
+
+                Tour tour = new Tour(tourId, name, location, price);
+                tours.add(tour);
+            }
+
+            return tours;
+
+        } catch (SQLException e) {
+            throw new Error(e);
+        } finally {
+            // Close the database resources
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                if (pStmt != null) {
+                    pStmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                throw new Error(e);
+            }
+        }
+
+//        return userInfos;
+    }
+
 }
