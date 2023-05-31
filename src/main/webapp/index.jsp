@@ -162,30 +162,83 @@
           </p>
         </div>
 
-        <div class="testimonial__card">
-          <div class="test__row1">
-            <div class="test__row2">
-              <!-- <div class="user__profile">
-                <img
-                  src="https://plus.unsplash.com/premium_photo-1677002756692-faeffee45d7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                  alt="user profile image"
-                  class="profile"
-                />
-              </div> -->
-              <div>
-                <p>Viezh Robert</p>
-                <p>Warsaw, Poland</p>
+        <!-- testimonial__cards -->
+        <div class="testimonial__card_rows">
+          <div class="testimonial__card">
+            <div class="test__row1">
+              <div class="test__row2">
+                <!-- <div class="user__profile">
+                  <img
+                    src="https://plus.unsplash.com/premium_photo-1677002756692-faeffee45d7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                    alt="user profile image"
+                    class="profile"
+                  />
+                </div> -->
+                <div class="card__info">
+                  <h1>Viezh Robert</h1>
+                  <p>Warsaw, Poland</p>
+                </div>
               </div>
+              <p>4.5</p>
             </div>
-            <p>4.5</p>
+            <div>
+              <p>
+                "Wow... I am very happy to use this VPN, it turned out to be
+                more than my expectations and so far there have been no
+                problems. LaslesVPN always the best".
+              </p>
+            </div>
           </div>
-          <!-- <div>
-            <p>
-              "Wow... I am very happy to use this VPN, it turned out to be more
-              than my expectations and so far there have been no problems.
-              LaslesVPN always the best".
-            </p>
-          </div> -->
+          <div class="testimonial__card">
+            <div class="test__row1">
+              <div class="test__row2">
+                <!-- <div class="user__profile">
+                  <img
+                    src="https://plus.unsplash.com/premium_photo-1677002756692-faeffee45d7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                    alt="user profile image"
+                    class="profile"
+                  />
+                </div> -->
+                <div class="card__info">
+                  <h1>Viezh Robert</h1>
+                  <p>Warsaw, Poland</p>
+                </div>
+              </div>
+              <p>4.5</p>
+            </div>
+            <div>
+              <p>
+                "Wow... I am very happy to use this VPN, it turned out to be
+                more than my expectations and so far there have been no
+                problems. LaslesVPN always the best".
+              </p>
+            </div>
+          </div>
+          <div class="testimonial__card">
+            <div class="test__row1">
+              <div class="test__row2">
+                <div class="testimonial_img_wrapper">
+                  <img
+                    src="https://plus.unsplash.com/premium_photo-1677002756692-faeffee45d7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                    alt="user profile image"
+                    class="testimonial_img"
+                  />
+                </div>
+                <div class="card__info">
+                  <h1>Viezh Robert</h1>
+                  <p>Warsaw, Poland</p>
+                </div>
+              </div>
+              <p>4.5</p>
+            </div>
+            <div>
+              <p>
+                "Wow... I am very happy to use this VPN, it turned out to be
+                more than my expectations and so far there have been no
+                problems. LaslesVPN always the best".
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
