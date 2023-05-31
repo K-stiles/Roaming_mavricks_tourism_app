@@ -178,9 +178,10 @@ public class Admin {
                 String location = resultSet.getString("location");
                 String price = resultSet.getString("price");
                 String dateTime = resultSet.getString("date");
+                String email = resultSet.getString("email");
 
                 Booking booking = new Booking(customerId, tourId, customerName, tourName,
-                        location, price, dateTime);
+                        location, price, dateTime, email);
                 bookings.add(booking);
             }
 
@@ -350,6 +351,54 @@ public class Admin {
 //        return userInfos;
     }
 
+    public List<UserInfo> getAdminDetails(int id) {
+
+        List<UserInfo> userInfos = new ArrayList<>();
+
+        try {
+            // Prepare the SQL statement to retrieve user information
+            sql = "SELECT * FROM tour_guides WHERE tour_guide_id = ?";
+            pStmt = conn.prepareStatement(sql);
+            pStmt.setInt(1, id);
+
+            // Execute the query
+            resultSet = pStmt.executeQuery();
+
+            // Process the result set and create UserInfo objects
+            while (resultSet.next()) {
+                int tour_guide_id = resultSet.getInt("tour_guide_id");
+                String name = resultSet.getString("name");
+//                String address = resultSet.getString("address");
+                String email = resultSet.getString("email");
+
+                UserInfo userInfo = new UserInfo(tour_guide_id, name, email);
+                userInfos.add(userInfo);
+            }
+
+            return userInfos;
+
+        } catch (SQLException e) {
+            throw new Error(e);
+        } finally {
+            // Close the database resources
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                if (pStmt != null) {
+                    pStmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                throw new Error(e);
+            }
+        }
+
+//        return userInfos;
+    }
+
     public int bookings(int tour_id, int cust_id) {
         try {
             // Prepare the SQL statement to insert a new booking
@@ -480,6 +529,61 @@ public class Admin {
         }
 
 //        return userInfos;
+    }
+
+    public List<Booking> getBookings(int cust_id) {
+
+        List<Booking> bookings = new ArrayList<>();
+
+        try {
+            // Prepare the SQL statement to retrieve user information
+            sql = "SELECT * FROM tourism_db.customers\n"
+                    + "JOIN tourism_db.bookings ON customers.customer_id = bookings.customer_id\n"
+                    + "JOIN tourism_db.tours ON bookings.tour_id = tours.tour_id "
+                    + "WHERE customers.customer_id = ?;";
+            pStmt = conn.prepareStatement(sql);
+            pStmt.setInt(1, cust_id);
+
+            // Execute the query
+            resultSet = pStmt.executeQuery();
+
+            // Process the result set and create UserInfo objects
+            while (resultSet.next()) {
+                int customerId = resultSet.getInt("customer_id");
+                int tourId = resultSet.getInt("tour_id");
+                String customerName = resultSet.getString("customers.name");
+                String tourName = resultSet.getString("tours.name");
+                String location = resultSet.getString("location");
+                String price = resultSet.getString("price");
+                String dateTime = resultSet.getString("date");
+
+                Booking booking = new Booking(customerId, tourId, customerName, tourName,
+                        location, price, dateTime);
+                bookings.add(booking);
+            }
+
+            return bookings;
+
+        } catch (SQLException e) {
+            throw new Error(e);
+        } finally {
+            // Close the database resources
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                if (pStmt != null) {
+                    pStmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                throw new Error(e);
+            }
+        }
+
+//        return bookings;
     }
 
 }

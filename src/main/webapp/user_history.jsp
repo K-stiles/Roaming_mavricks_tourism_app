@@ -1,5 +1,5 @@
 <%-- Document : user_dashboard Created on : May 29, 2023, 8:30:15 AM Author :
-admin --%> 
+admin --%>
 <%--<%@page contentType="text/html" pageEncoding="UTF-8"%>--%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -29,10 +29,9 @@ admin --%>
         <%-- Check if the session exists --%>
         <% if (session != null && session.getAttribute("customerId") != null) { %>
         <%-- Retrieve the userInfos list from the request object --%>
-        <% 
-            List<Tour> tours = (List<Tour>) request.getAttribute("tours"); 
-            List<Tour> userTours = (List<Tour>) request.getAttribute("userTours"); 
-            List<UserInfo> user = (List<UserInfo>) request.getAttribute("user"); 
+        <%
+            List<UserInfo> user = (List<UserInfo>) request.getAttribute("user");
+            List<Booking> userTours = (List<Booking>) request.getAttribute("userTours");
         %>
         <!-- A -->
         <main class="dashboard_body">
@@ -67,14 +66,14 @@ admin --%>
                             <p class="board_title">Dashboard</p>
                             <!-- Tile 1-->
                             <li>
-                                <a href="#" class="board_tile active">
+                                <a href="login" class="board_tile">
                                     <i class="uil uil-analytics tile__icon"></i>
                                     <p class="tile__text">Tour Locations</p>
                                 </a>
                             </li>
                             <!-- Tile 2-->
                             <li>
-                                <a href="user_history" class="board_tile">
+                                <a href="#" class="board_tile active">
                                     <i class="uil uil-map"></i>
                                     <p class="tile__text">History</p>
                                 </a>
@@ -99,20 +98,7 @@ admin --%>
                 <!-- dashboard__header -->
                 <header class="dashboard__header">
                     <nav class="dashboard__navbar">
-                        <h1 class="dashboard_header__text">Tour Sites</h1>
-
-                        <% if( request.getAttribute("bookingMsg1") != null ){ %>
-
-                        <h5 style="color: green"><%= request.getAttribute("bookingMsg1") %></h5>
-
-                        <% } %>
-
-
-                        <% if( request.getAttribute("bookingMsg2") != null ){ %>
-
-                        <h5 style="color: red"><%= request.getAttribute("bookingMsg2") %></h5>
-
-                        <% } %>
+                        <h1 class="dashboard_header__text">Tour History</h1>
 
                         <div class="nav__left">
                             <i class="uil uil-bell"></i>
@@ -136,65 +122,71 @@ admin --%>
                         <!-- main card -->
 
                         <%-- Check if tours list exists and is not empty --%>
-                        <% if (tours != null && !tours.isEmpty()) { %>
+                        <% if (userTours != null && !userTours.isEmpty()) { %>
+
+                        <table id="table">
+                            <tr class="table__header">
+                                <!--                                <th class="table__header_box">
+                                                                    <label class="box__container">
+                                                                        <input type="checkbox" />
+                                                                        <span class="checkmark"></span>
+                                                                    </label>
+                                                                </th>-->
+                                <th class="table__header_row">Tour Name</th>
+                                <th class="table__header_row">location name</th>
+                                <th class="table__header_row">Price</th>
+                                <th class="table__header_row">booking Date</th>
+                            </tr>
 
                         <%-- Iterate over the list and display the information --%>
-                        <% for (Tour tour : tours) { %>
+                        <% for (Booking tour : userTours) {
+                            // Create a SimpleDateFormat object for parsing
+                            java.text.SimpleDateFormat inputDateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-                        <div class="tour__card">
-                            <img
-                                src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/tourimg.jpg"
-                                alt="user profile image"
-                                class="tour__img"
-                                />
+                            // Parse the input date string
+                            java.util.Date inputDate = inputDateFormat.parse(tour.getDateTime());
 
-                            <div class="abs">
-                                <!-- site -->
-                                <p class="top__site"><%= tour.getTourName() %></p>
-                                <!-- location -->
-                                <p class="top__location"><%= tour.getLocation() %></p>
-                            </div>
-                            <div class="tour__img_overlay">
-                                <div class="tour__img_overlay_top">
-                                    <p class="top__site"><%= tour.getTourName() %></p>
-                                    <span style="display: flex; align-items: center; gap: 8px">
-                                        <i class="uil uil-estate"></i>
-                                        <p class="top__location"><%= tour.getLocation() %></p>
-                                    </span>
-                                </div>
-                                <div class="tour__img_overlay_bot">
-                                    <p class="bot__money">$<%= tour.getPrice() %></p>
+                            // Create a SimpleDateFormat object for formatting the month
+                            java.text.SimpleDateFormat monthFormat = new java.text.SimpleDateFormat("MMMM");
 
-                                    <%-- Check if the element exists in the array --%>
-                                    <% boolean exists = false;
-                                        for (Tour userTour : userTours) {
-                                            if (userTour.getTourId() == tour.getTourId()) {
-                                              exists = true;
-                                                break;
-                                            }
-                                        }
-                                     if(exists == true){ %>
-                                     
-                                    
-                                     <p class="board_tile active"><span class="gg-check" style="display: inline;"></span> Booked</p>
-                                    
-                                    <% }else{ %>
+                            // Create a SimpleDateFormat object for formatting the day
+                            java.text.SimpleDateFormat dayFormat = new java.text.SimpleDateFormat("d");
 
-                                    <form action="bookings" method="post">
-                                        <button class="bot__btn">Book Now</button>
-                                        <input type="hidden" name="tour_id" value="<%= tour.getTourId() %>" />
-                                    </form>
+                            // Get the month and day as strings
+                            String monthStr = monthFormat.format(inputDate);
+                            String dayStr = dayFormat.format(inputDate);
 
-                                    <% } %>
+                            // Add the appropriate suffix to the day
+                            String dayWithSuffix = addDaySuffix(dayStr);
 
-                                    <!--<a href="bookings?tour_id=<--% = tour.getTourId() %>" class="bot__btn" style="color: black">Book Now</a>-->
-                                </div>
-                            </div>
-                        </div> 
+                            // Create a SimpleDateFormat object for formatting the year
+                            java.text.SimpleDateFormat yearFormat = new java.text.SimpleDateFormat("yyyy");
+
+                            // Get the year as a string
+                            String yearStr = yearFormat.format(inputDate);
+
+                            // Concatenate the formatted date components
+                            String outputDateStr = monthStr + " " + dayWithSuffix + " " + yearStr;
+                        %>
+
+                            <!-- content -->
+                            <!-- REMOVE && LOOP TABLE CONTENT HERE -->
+                            <tr class="table__content">
+
+                                <td><%= tour.getTourName() %></td>
+                                <td><%= tour.getLocation() %></td>
+                                <td>GHC <%= tour.getPrice() %></td>
+                                <td><%= outputDateStr %></td>
+                                <!--<td>July 1st 2023</td>-->
+                            </tr>
+
+                            <!-- content End -->
+
                         <% } %>
+                        </table>
 
                         <% } else { %>
-                        <p>No user information found.</p>
+                        <p>No information found.</p>
                         <% } %>
 
                         <!-- --------------- EXTRAS END NB: Remove --------------- -->
@@ -207,5 +199,67 @@ admin --%>
         <% } else { %>
         <p>Page not found.</p>
         <% } %>
-    </body>
+        
+
+    <%!
+        public String addDaySuffix(String dayStr) {
+            int day = Integer.parseInt(dayStr);
+            String suffix;
+
+            if (day >= 11 && day <= 13) {
+                suffix = "th";
+            } else {
+                switch (day % 10) {
+                    case 1:
+                        suffix = "st";
+                        break;
+                    case 2:
+                        suffix = "nd";
+                        break;
+                    case 3:
+                        suffix = "rd";
+                        break;
+                    default:
+                        suffix = "th";
+                        break;
+                }
+            }
+
+            return dayStr + suffix;
+        }
+    %>
+</body>
 </html>
+
+
+<%--<%!
+    public String formatDateWithSuffix(java.util.Date date, java.text.SimpleDateFormat format) {
+        // Format the date without the suffix
+        String formattedDate = format.format(date);
+
+        // Get the day value from the formatted date
+        String day = formattedDate.substring(formattedDate.indexOf(" ") + 1);
+
+        // Check the last character of the day value to determine the suffix
+        char lastChar = day.charAt(day.length() - 1);
+        String suffix;
+        switch (lastChar) {
+            case '1':
+                suffix = "st";
+                break;
+            case '2':
+                suffix = "nd";
+                break;
+            case '3':
+                suffix = "rd";
+                break;
+            default:
+                suffix = "th";
+                break;
+        }
+
+        // Replace the last space with the suffix
+        return formattedDate.substring(0, formattedDate.lastIndexOf(" ")) + " " + day + suffix;
+    }
+%>--%>
+

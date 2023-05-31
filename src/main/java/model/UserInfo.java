@@ -13,6 +13,13 @@ public class UserInfo {
     private String name;
     private String address;
     private String email;
+    
+
+    public UserInfo(int customerId, String name, String email) {
+        this.customerId = customerId;
+        this.name = name;
+        this.email = email;
+    }
 
     public UserInfo(int customerId, String name, String address, String email) {
         this.customerId = customerId;

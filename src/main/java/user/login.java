@@ -122,12 +122,18 @@ public class login extends HttpServlet {
 
                     Admin admin = new Admin();
                     List<Booking> bookings = admin.getAllBookings();
+                    
+                    Admin admin2 = new Admin();
+                    List<UserInfo> user = admin2.getAdminDetails(isValidUser);
+                    
+                    request.setAttribute("user", user);
 
                     // Set the userInfos list as an attribute in the request object
                     request.setAttribute("bookings", bookings);
 
                     // Forward the request to the JSP page
-                    request.getRequestDispatcher("bookingList.jsp").forward(request, response);
+//                    request.getRequestDispatcher("bookingList.jsp").forward(request, response);
+                    request.getRequestDispatcher("tourguide_dashboard.jsp").forward(request, response);
 
                 } else {
 
@@ -159,7 +165,13 @@ public class login extends HttpServlet {
 
                 request.setAttribute("LogMsg", "Login failed. Please try again.");
 
-                request.getRequestDispatcher("login.jsp").forward(request, response);
+                if (role.equals("tour_guide")) {
+                    request.getRequestDispatcher("admin.jsp").forward(request, response);
+
+                } else {
+                    request.getRequestDispatcher("login.jsp").forward(request, response);
+
+                }
 
             }
 
