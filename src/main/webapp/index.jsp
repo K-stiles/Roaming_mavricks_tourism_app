@@ -21,6 +21,7 @@
       rel="stylesheet"
       href="http://localhost:8080/Roaming_mavricks_tourism_app/styles/userDashboard.css"
     />
+    <script src="http://localhost:8080/Roaming_mavricks_tourism_app/js/index.js"></script>
   </head>
   <body>
     <!-- Navigation bar -->

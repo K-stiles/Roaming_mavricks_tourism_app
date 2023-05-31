@@ -35,9 +35,21 @@
           </ul>
         </nav>
 
-       <div class="menu" style="font-size: 2rem;font-weight: bold; cursor:pointer"> <i class="uil uil-bars"></i></div>
+       <div  class="menu" style="font-size: 2rem;font-weight: bold; cursor:pointer"><a onClick="openNav()" class="close"> <i  class="uil uil-bars"></i></a> </div>
+ 
 
+      </div>
 
+      <div id="monile_menu" class="overlay">
+      <a onClick="closeNav()" class="close">&times;</a>
+      <div class="overlay__content">
+        <a class="overlay_link" href="#home">Home</a>
+        <a class="overlay_link" href="#toursites">Tour sites</a>
+        <a class="overlay_link" href="#contactus">Contact</a>
+        <a class="overlay_link" href="#testimonial">Testimonial</a>
+        <a class="btn" href="register.jsp">Register</a>
+        <a class="btn" href="login.jsp">Login</a>
+      </div>
       </div>
     </header>
 
