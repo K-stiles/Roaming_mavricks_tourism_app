@@ -4,23 +4,24 @@
 
 <header class="navigation__header">
       <div class="navigation__bar">
-        <a href="#home" class="logo__link">
+        <a href="#home" class="logo__link" >
           <img
             src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/logo.svg"
             alt="brand logo"
             class="nav__logo"
           />
         </a>
+      
         <nav class="navigation__links">
           <ul class="ul__navigation__links">
             <li class="nav__link">
-              <a class="active link" href="#home">Home</a>
+              <a  class="active link" href="#home">Home</a>
             </li>
             <li class="nav__link">
               <a class="link" href="#toursites">Tour sites</a>
             </li>
             <li class="nav__link">
-              <a class="link" href="#contactus">Contact us</a>
+              <a class="link" href="#contactus">Contact</a>
             </li>
             <li class="nav__link">
               <a class="link" href="#testimonial">Testimonial</a>
@@ -33,6 +34,10 @@
             </li>
           </ul>
         </nav>
+
+       <div class="menu" style="font-size: 2rem;font-weight: bold; cursor:pointer"> <i class="uil uil-bars"></i></div>
+
+
       </div>
     </header>
 

@@ -4,6 +4,12 @@
     <title>Start Page</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
     />
@@ -56,7 +62,7 @@
       </header>
 
       <!-- Tour Sites -->
-      <section id="toursites" class="sites__section">
+      <section id="toursites" class="sites__section mt">
         <div class="sites__header">
           <h1 class="sites__title">Tour Sites</h1>
           <p class="sites__p">
@@ -150,95 +156,19 @@
         </div>
       </section>
 
-      <!-- TODO: Testimonial -->
+      <!-- Testimonial -->
       <section id="testimonial" class="sites__section">
         <div class="sites__header">
-          <h1 class="sites__title" style="max-width: 700px">
-            Trusted by Thousands of Happy Customer
-          </h1>
-          <p class="sites__p">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et
-          </p>
+          <h1 class="sites__title" style="max-width: 700px">Testimonials</h1>
+          <p class="sites__p">Trusted by Thousands of Happy Customer</p>
         </div>
 
         <!-- testimonial__cards -->
         <div class="testimonial__card_rows">
-          <div class="testimonial__card">
-            <div class="test__row1">
-              <div class="test__row2">
-                <!-- <div class="user__profile">
-                  <img
-                    src="https://plus.unsplash.com/premium_photo-1677002756692-faeffee45d7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                    alt="user profile image"
-                    class="profile"
-                  />
-                </div> -->
-                <div class="card__info">
-                  <h1>Viezh Robert</h1>
-                  <p>Warsaw, Poland</p>
-                </div>
-              </div>
-              <p>4.5</p>
-            </div>
-            <div>
-              <p>
-                "Wow... I am very happy to use this VPN, it turned out to be
-                more than my expectations and so far there have been no
-                problems. LaslesVPN always the best".
-              </p>
-            </div>
-          </div>
-          <div class="testimonial__card">
-            <div class="test__row1">
-              <div class="test__row2">
-                <!-- <div class="user__profile">
-                  <img
-                    src="https://plus.unsplash.com/premium_photo-1677002756692-faeffee45d7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                    alt="user profile image"
-                    class="profile"
-                  />
-                </div> -->
-                <div class="card__info">
-                  <h1>Viezh Robert</h1>
-                  <p>Warsaw, Poland</p>
-                </div>
-              </div>
-              <p>4.5</p>
-            </div>
-            <div>
-              <p>
-                "Wow... I am very happy to use this VPN, it turned out to be
-                more than my expectations and so far there have been no
-                problems. LaslesVPN always the best".
-              </p>
-            </div>
-          </div>
-          <div class="testimonial__card">
-            <div class="test__row1">
-              <div class="test__row2">
-                <div class="testimonial_img_wrapper">
-                  <img
-                    src="https://plus.unsplash.com/premium_photo-1677002756692-faeffee45d7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                    alt="user profile image"
-                    class="testimonial_img"
-                  />
-                </div>
-                <div class="card__info">
-                  <h1>Viezh Robert</h1>
-                  <p>Warsaw, Poland</p>
-                </div>
-              </div>
-              <p>4.5</p>
-            </div>
-            <div>
-              <p>
-                "Wow... I am very happy to use this VPN, it turned out to be
-                more than my expectations and so far there have been no
-                problems. LaslesVPN always the best".
-              </p>
-            </div>
-          </div>
+          <%@include file="WEB-INF/jspf/testimonialcard.jspf"%> <%@include
+          file="WEB-INF/jspf/testimonialcard.jspf"%> <%@include
+          file="WEB-INF/jspf/testimonialcard.jspf"%> <%@include
+          file="WEB-INF/jspf/testimonialcard.jspf"%>
         </div>
       </section>
     </main>
