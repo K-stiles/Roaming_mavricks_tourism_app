@@ -64,7 +64,7 @@ admin --%> <%@page contentType="text/html" pageEncoding="UTF-8"%>
                             </li>
                             <!-- Tile 2-->
                             <li>
-                                <a href="#" class="board_tile">
+                                <a href="tour_listing" class="board_tile">
                                     <i class="uil uil-map"></i>
                                     <p class="tile__text">tour</p>
                                 </a>
@@ -74,10 +74,12 @@ admin --%> <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
                     <div class="logout">
                         <!-- Tile 3-->
-                        <div class="board_tile">
-                            <i class="uil uil-signout"></i>
-                            <p class="tile__text">Logout</p>
-                        </div>
+                        <a href="logout" >
+                            <div class="board_tile">
+                                <i class="uil uil-signout"></i>
+                                <p class="tile__text">Logout</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </aside>

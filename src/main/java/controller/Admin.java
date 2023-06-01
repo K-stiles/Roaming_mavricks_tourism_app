@@ -227,8 +227,9 @@ public class Admin {
                 String name = resultSet.getString("name");
                 String location = resultSet.getString("location");
                 String price = resultSet.getString("price");
+                String imgUrl = resultSet.getString("img_url");
 
-                Tour tour = new Tour(tourId, name, location, price);
+                Tour tour = new Tour(tourId, name, location, price, imgUrl);
                 tours.add(tour);
             }
 
@@ -433,6 +434,43 @@ public class Admin {
         return -1; // Return -1 if booking creation fails
     }
 
+    public int newTour(String tourName, String location, String price, String imgUrl) {
+        try {
+            // Prepare the SQL statement to insert a new booking
+            sql = "INSERT INTO tours (name, location, price, img_url) VALUES (?, ?, ?, ?)";
+            pStmt = conn.prepareStatement(sql);
+            pStmt.setString(1, tourName);
+            pStmt.setString(2, location);
+            pStmt.setString(3, price);
+            pStmt.setString(4, imgUrl);
+
+            // Execute the query
+            int rowsAffected = pStmt.executeUpdate();
+
+            // Check if the user was successfully created
+            if (rowsAffected > 0) {
+                // Retrieve the generated ID
+               return rowsAffected;
+            }
+        } catch (SQLException e) {
+            throw new Error(e);
+        } finally {
+            // Close the database resources
+            try {
+                if (pStmt != null) {
+                    pStmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                throw new Error(e);
+            }
+        }
+
+        return -1; // Return -1 if booking creation fails
+    }
+
     public List<Booking> getBookings(int tour_id, int cust_id) {
 
         List<Booking> bookings = new ArrayList<>();
@@ -502,8 +540,9 @@ public class Admin {
                 String name = resultSet.getString("name");
                 String location = resultSet.getString("location");
                 String price = resultSet.getString("price");
+                String imgUrl = resultSet.getString("img_url");
 
-                Tour tour = new Tour(tourId, name, location, price);
+                Tour tour = new Tour(tourId, name, location, price, imgUrl);
                 tours.add(tour);
             }
 

@@ -142,11 +142,13 @@ admin --%>
                         <% for (Tour tour : tours) { %>
 
                         <div class="tour__card">
-                            <img
+<!--                            <img
                                 src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/tourimg.jpg"
                                 alt="user profile image"
                                 class="tour__img"
-                                />
+                                />-->
+                                
+<img src="<%= tour.getImgUrl() %>" alt="alt" style="width:  300px;"   />
 
                             <div class="abs">
                                 <!-- site -->

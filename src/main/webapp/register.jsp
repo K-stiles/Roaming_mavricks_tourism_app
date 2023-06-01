@@ -12,7 +12,7 @@
     <title>Tourism App | Register</title>
   </head>
   <body>
-    <nav class="auth_nav"><a class="auth__home" href="index.jsp">Home</a></nav>
+    <nav class="auth_nav"><a class="auth__home" href="${pageContext.request.contextPath}/">Home</a></nav>
 
     <main>
       <section class="auth__section">
@@ -67,7 +67,7 @@
           </div>
 
           <div class="account">
-            <p>Already have an account? <a href="login.jsp">Sign in</a>.</p>
+            <p>Already have an account? <a href="login">Sign in</a>.</p>
           </div>
         </form>
       </section>

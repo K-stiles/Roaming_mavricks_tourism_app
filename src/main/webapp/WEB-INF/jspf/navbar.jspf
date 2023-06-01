@@ -27,10 +27,10 @@
               <a class="link" href="#testimonial">Testimonial</a>
             </li>
             <li class="nav__link">
-              <a class="link" href="register.jsp">Register</a>
+              <a class="link" href="register">Register</a>
             </li>
             <li class="nav__link">
-              <a class="login_btn" href="login.jsp">Login</a>
+              <a class="login_btn" href="login">Login</a>
             </li>
           </ul>
         </nav>
@@ -47,8 +47,8 @@
         <a class="overlay_link" href="#toursites">Tour sites</a>
         <a class="overlay_link" href="#contactus">Contact</a>
         <a class="overlay_link" href="#testimonial">Testimonial</a>
-        <a class="btn" href="register.jsp">Register</a>
-        <a class="btn" href="login.jsp">Login</a>
+        <a class="btn" href="register">Register</a>
+        <a class="btn" href="login">Login</a>
       </div>
       </div>
     </header>

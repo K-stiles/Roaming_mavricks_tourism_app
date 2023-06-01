@@ -11,7 +11,7 @@
     <title>Tourism App | Login</title>
   </head>
   <body>
-    <nav class="auth_nav"><a class="auth__home" href="index.jsp">Home</a></nav>
+    <nav class="auth_nav"><a class="auth__home" href="${pageContext.request.contextPath}/">Home</a></nav>
 
     <%-- Check if the session exists and the desired attribute is set --%> <% if
     (session != null && (session.getAttribute("customerId") != null ||
@@ -72,7 +72,7 @@
           </div>
 
           <div class="account">
-            <p>Don't have an account? <a href="register.jsp">Register</a>.</p>
+            <p>Don't have an account? <a href="register">Register</a>.</p>
           </div>
         </form>
       </section>

@@ -31,7 +31,9 @@ public class admin extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
                 // Redirect to the login page
-        response.sendRedirect("admin.jsp");
+//        response.sendRedirect("admin.jsp");
+            request.getRequestDispatcher("admin.jsp").forward(request, response);
+
         
     }
 
