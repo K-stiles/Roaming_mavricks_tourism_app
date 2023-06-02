@@ -63,7 +63,7 @@ body {
 input[type="text"],
 input[type="password"] {
   /*width: 100%;*/
-    /*width: 10%;*/
+  /*width: 10%;*/
   border-radius: 4px;
   padding: 0.9rem;
   margin: 5px 0 22px 0;
@@ -115,12 +115,14 @@ input[type="password"]:focus {
 }
 .dashboard {
   position: relative;
-  height: 100%;
+  /* height: 100%; */
   left: 260px;
   /* width: 100%; */
   width: calc(100% - 260px);
   transition: all 0.5s ease;
   background-color: var(--board);
+  padding-bottom: 2rem;
+  /* background-color: red; */
 }
 .aside__flex {
   display: flex;
@@ -210,6 +212,8 @@ i {
 }
 .dashboard__header {
   border-bottom: 2px solid var(--divider);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
 }
 .dashboard__navbar {
   width: 95%;
@@ -240,7 +244,6 @@ i {
   padding: 0.3rem 5rem 0.3rem 0.3rem;
   display: flex;
   justify-content: end;
-  /* background-color: royalblue; */
 }
 .filter__btn {
   display: flex;

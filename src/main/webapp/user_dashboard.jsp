@@ -75,14 +75,14 @@ admin --%>
                             <!-- Tile 2-->
                             <li>
                                 <a href="user_history" class="board_tile">
-                                    <i class="uil uil-map"></i>
+                                    <i class="uil uil-presentation-line"></i>
                                     <p class="tile__text">History</p>
                                 </a>
                             </li>
-                            
+
                             <li>
                                 <a href="${pageContext.request.contextPath}/" class="board_tile">
-                                    <i class="uil uil-map"></i>
+                                    <i class="uil uil-estate"></i>
                                     <p class="tile__text">Back to Home</p>
                                 </a>
                             </li>
@@ -140,29 +140,44 @@ admin --%>
 
                 <div class="dashboard__content">
                     <div class="tour__cards">
+
                         <!-- main card -->
 
-                        <%-- Check if tours list exists and is not empty --%>
-                        <% if (tours != null && !tours.isEmpty()) { %>
+                        <%-- Check if tours list exists and is not empty --%> <% if (tours != null &&
+!tours.isEmpty()) { %> <%-- Iterate over the list and display the information
+                        --%> <% for (Tour tour : tours) { %>
 
-                        <%-- Iterate over the list and display the information --%>
-                        <% for (Tour tour : tours) { %>
+                        <!-- card 1 -->
+                        <div class="new_tour__card">
+                            <div class="half__img">
+                                <!-- <img
+                                    src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/tourimg.jpg"
+                                    alt="user profile image"
+                                    class="tour__img"
+                                  /> -->
+                                <img
+                                    src="<%= tour.getImgUrl() %>"
+                                    alt="user profile image"
+                                    class="tour__img"
+                                    />
 
-                        <div class="tour__card">
-<!--                            <img
-                                src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/tourimg.jpg"
-                                alt="user profile image"
-                                class="tour__img"
-                                />-->
-                                
-<img src="<%= tour.getImgUrl() %>" alt="alt" style="width:  300px;"   />
-
-                            <div class="abs">
-                                <!-- site -->
-                                <p class="top__site"><%= tour.getTourName() %></p>
-                                <!-- location -->
-                                <p class="top__location"><%= tour.getLocation() %></p>
+                                <div class="abs">
+                                    <p class="tour__site" style="margin: 0px">$<%= tour.getPrice() %></p>
+                                </div>
                             </div>
+
+                            <!--infor here-->
+                            <div class="info">
+                                <!-- site & location -->
+                                <div class="booking_info_wrapper">
+                                    <p class="tour__site" style="margin: 0px"><%= tour.getTourName() %></p>
+                                    <p class="tour__location" style="margin: 0px">
+                                        <%= tour.getLocation() %>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- tour__img_overlay -->
                             <div class="tour__img_overlay">
                                 <div class="tour__img_overlay_top">
                                     <p class="top__site"><%= tour.getTourName() %></p>
@@ -174,19 +189,14 @@ admin --%>
                                 <div class="tour__img_overlay_bot">
                                     <p class="bot__money">$<%= tour.getPrice() %></p>
 
-                                    <%-- Check if the element exists in the array --%>
-                                    <% boolean exists = false;
-                                        for (Tour userTour : userTours) {
-                                            if (userTour.getTourId() == tour.getTourId()) {
-                                              exists = true;
-                                                break;
-                                            }
-                                        }
-                                     if(exists == true){ %>
-                                     
-                                    
-                                     <p class="board_tile active"><span class="gg-check" style="display: inline;"></span> Booked</p>
-                                    
+                                    <%-- Check if the element exists in the array --%> <% boolean exists =
+                                    false; for (Tour userTour : userTours) { if (userTour.getTourId() ==
+                                    tour.getTourId()) { exists = true; break; } } if(exists == true){ %>
+
+                                    <p class="board_tile active">
+                                        <span class="gg-check" style="display: inline"></span> Booked
+                                    </p>
+
                                     <% }else{ %>
 
                                     <form action="bookings" method="post">
@@ -199,10 +209,9 @@ admin --%>
                                     <!--<a href="bookings?tour_id=<--% = tour.getTourId() %>" class="bot__btn" style="color: black">Book Now</a>-->
                                 </div>
                             </div>
-                        </div> 
-                        <% } %>
-
-                        <% } else { %>
+                        </div>
+                        <!-- card 1 end -->
+                        <% } %> <% } else { %>
                         <p>No user information found.</p>
                         <% } %>
 

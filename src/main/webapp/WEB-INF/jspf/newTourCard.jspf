@@ -1,0 +1,48 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+<!-- card 1 -->
+<div class="new_tour__card">
+    <div class="half__img">
+        <img
+            src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/tourimg.jpg"
+            alt="user profile image"
+            class="tour__img"
+            />
+
+        <div class="abs">
+            <p class="tour__site" style="margin: 0px">$100</p>
+        </div>
+    </div>
+
+     <!--infor here--> 
+    <div class="info">
+        <!-- site & location -->
+        <div class="booking_info_wrapper">
+            <p class="tour__site" style="margin: 0px">
+                Independence Square
+            </p>
+            <p class="tour__location" style="margin: 0px">Cape Coat</p>
+        </div>
+    </div>
+
+    <!-- tour__img_overlay -->
+    <div class="tour__img_overlay">
+        <div class="tour__img_overlay_top">
+            <p class="top__site" style="margin: 0px">Independence Square</p>
+            <span style="display: flex; align-items: center; gap: 8px">
+                <i class="uil uil-estate" style="font-size: 1.5rem"></i>
+                <p class="top__location" style="margin: 0px">Cape Coat</p>
+            </span>
+        </div>
+        <div class="tour__img_overlay_bot">
+            <p class="bot__money">$10</p>
+
+            <!-- <form action="bookings" method="post"> -->
+            <button class="bot__btn">Book Now</button>
+            <!-- <input type="hidden" name="tour_id" />
+                      </form> -->
+        </div>
+    </div>
+</div>
+<!-- card 1 end -->

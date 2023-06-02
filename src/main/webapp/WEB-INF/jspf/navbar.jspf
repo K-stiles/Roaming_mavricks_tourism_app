@@ -27,8 +27,9 @@
                 </li>
                 <%-- Check if the session exists --%>
                 <% if (session != null && session.getAttribute("customerId") != null) { %>
+
                 <li class="nav__link">
-                    <a class="link" href="register">Dashboard</a>
+                    <a class="login_btn" href="register">Dashboard</a>
                 </li>
                 <% } else { %>
                 <li class="nav__link">
