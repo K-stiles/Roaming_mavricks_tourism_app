@@ -1,10 +1,10 @@
-CREATE DATABASE  IF NOT EXISTS `tourism_db` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE  IF NOT EXISTS `tourism_db` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `tourism_db`;
--- MySQL dump 10.13  Distrib 8.0.33, for macos13 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.31, for macos12 (x86_64)
 --
--- Host: 127.0.0.1    Database: tourism_db
+-- Host: localhost    Database: tourism_db
 -- ------------------------------------------------------
--- Server version	5.7.41
+-- Server version	8.0.32
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,13 +25,14 @@ DROP TABLE IF EXISTS `bookings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bookings` (
-  `customer_id` int(11) NOT NULL,
-  `tour_id` int(11) NOT NULL,
+  `customer_id` int NOT NULL,
+  `tour_id` int NOT NULL,
+  `date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`customer_id`,`tour_id`),
   KEY `FK_TOURS_idx` (`tour_id`),
   CONSTRAINT `FK_CUSTOMERS` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`),
   CONSTRAINT `FK_TOURS` FOREIGN KEY (`tour_id`) REFERENCES `tours` (`tour_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +41,7 @@ CREATE TABLE `bookings` (
 
 LOCK TABLES `bookings` WRITE;
 /*!40000 ALTER TABLE `bookings` DISABLE KEYS */;
-INSERT INTO `bookings` VALUES (7,1),(1,2),(6,3);
+INSERT INTO `bookings` VALUES (1,1,'2023-06-02 02:40:13'),(1,2,'2023-06-01 12:03:39'),(1,4,'2023-06-02 02:40:58'),(1,13,'2023-06-02 01:59:19'),(6,3,'2023-06-01 12:03:39'),(7,1,'2023-06-01 12:03:39');
 /*!40000 ALTER TABLE `bookings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,13 +53,13 @@ DROP TABLE IF EXISTS `customers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customers` (
-  `customer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,12 +80,12 @@ DROP TABLE IF EXISTS `tour_guides`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tour_guides` (
-  `tour_guide_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tour_guide_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`tour_guide_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,16 +106,16 @@ DROP TABLE IF EXISTS `tours`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tours` (
-  `tour_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tour_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   `location` varchar(45) DEFAULT NULL,
   `price` varchar(45) DEFAULT NULL,
-  `tour_guide_id` int(11) DEFAULT NULL,
+  `tour_guide_id` int DEFAULT NULL,
   `img_url` varchar(10000) DEFAULT NULL,
   PRIMARY KEY (`tour_id`),
   KEY `FK_TOUR_GUIDES_idx` (`tour_guide_id`),
   CONSTRAINT `FK_TOUR_GUIDES` FOREIGN KEY (`tour_guide_id`) REFERENCES `tour_guides` (`tour_guide_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,4 +137,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-31 12:43:19
+-- Dump completed on 2023-06-02  3:37:47
