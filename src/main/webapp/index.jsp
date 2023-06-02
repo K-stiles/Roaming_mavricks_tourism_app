@@ -84,21 +84,7 @@
                     <!-- main card -->
                     <%@include file="WEB-INF/jspf/tourcard.jspf"%>
                     <!-- --------------- EXTRAS NB: Remove --------------- -->
-                    <!-- --------------- EXTRAS NB: Remove --------------- -->
-                    <%@include file="WEB-INF/jspf/tourcard.jspf"%> <%@include
-                        file="WEB-INF/jspf/tourcard.jspf"%> <%@include
-                            file="WEB-INF/jspf/tourcard.jspf"%> <%@include
-                                file="WEB-INF/jspf/tourcard.jspf"%> <%@include
-                                    file="WEB-INF/jspf/tourcard.jspf"%> <%@include
-                                        file="WEB-INF/jspf/tourcard.jspf"%> <%@include
-                                            file="WEB-INF/jspf/tourcard.jspf"%> <%@include
-                                                file="WEB-INF/jspf/tourcard.jspf"%> <%@include
-                                                    file="WEB-INF/jspf/tourcard.jspf"%> <%@include
-                                                        file="WEB-INF/jspf/tourcard.jspf"%> <%@include
-                                                            file="WEB-INF/jspf/tourcard.jspf"%> <%@include
-                                                                file="WEB-INF/jspf/tourcard.jspf"%>
-                                                                <!-- --------------- EXTRAS END NB: Remove --------------- -->
-                                                                <!-- --------------- EXTRAS END NB: Remove --------------- -->
+                    
                                                             </div>
                                                         </section>
 

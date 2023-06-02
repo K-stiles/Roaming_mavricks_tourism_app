@@ -34,6 +34,35 @@ public class registration extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        //        <%-- Check if the session exists --%>
+        HttpSession session = request.getSession();
+
+        if (session != null && session.getAttribute("customerId") != null) {
+
+            Admin admin = new Admin();
+            List<Tour> tours = admin.getAllTours();
+
+            Admin admin2 = new Admin();
+//            List<UserInfo> user = admin2.getCustomerDetails(session.getAttribute("customerId"));
+            int customerId = (int) session.getAttribute("customerId");
+            List<UserInfo> user = admin2.getCustomerDetails(customerId);
+
+            Admin admin3 = new Admin();
+            List<Tour> userTours = admin3.getUserTours(customerId);
+
+            // Set the userInfos list as an attribute in the request object
+            request.setAttribute("tours", tours);
+//                    request.setAttribute("email", email);
+            request.setAttribute("user", user);
+
+            request.setAttribute("userTours", userTours);
+
+            // Forward the request to the JSP page
+            request.getRequestDispatcher("user_dashboard.jsp").forward(request, response);
+            
+            return;
+        }
 
         request.getRequestDispatcher("register.jsp").forward(request, response);
 

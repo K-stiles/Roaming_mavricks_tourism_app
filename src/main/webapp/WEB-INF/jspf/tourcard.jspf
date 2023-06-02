@@ -1,31 +1,78 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
+<%@page import="java.util.List"%>
+<%@page import="model.*"%>
 
-          <!-- main card -->
-          <div class="tour__card">
-            <img
-              src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/tourimg.jpg"
-              alt="user profile image"
-              class="tour__img"
-            />
+<%
+    ServletContext servletContext = request.getServletContext();
+    List<Tour> tours = (List<Tour>) servletContext.getAttribute("tours");
+%>
 
-            <div class="abs">
-              <!-- site -->
-              <p class="top__site">Zayaa Mud Mosque</p>
-              <!-- location -->
-              <p class="top__location">Wulugu</p>
-            </div>
-            <div class="tour__img_overlay">
-              <div class="tour__img_overlay_top">
-                <p class="top__site">Zayaa Mud Mosque</p>
-                <span style="display: flex; align-items: center; gap: 8px">
-                  <i class="uil uil-estate"></i>
-                  <p class="top__location">Wulugu</p>
-                </span>
-              </div>
-              <div class="tour__img_overlay_bot">
-                <p class="bot__money">$72.00</p>
+<!-- main card -->
+<%-- Check if tours list exists and is not empty --%>
+<% if (tours != null && !tours.isEmpty()) { %>
+
+<%-- Iterate over the list and display the information --%>
+<% for (Tour tour : tours) { %>
+
+<div class="tour__card">
+    <!--                            <img
+                                    src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/tourimg.jpg"
+                                    alt="user profile image"
+                                    class="tour__img"
+                                    />-->
+
+    <img src="<%= tour.getImgUrl() %>" alt="alt" style="width:  300px;"   />
+
+    <div class="abs">
+        <!-- site -->
+        <p class="top__site"><%= tour.getTourName() %></p>
+        <!-- location -->
+        <p class="top__location"><%= tour.getLocation() %></p>
+    </div>
+    <div class="tour__img_overlay">
+        <div class="tour__img_overlay_top">
+            <p class="top__site"><%= tour.getTourName() %></p>
+            <span style="display: flex; align-items: center; gap: 8px">
+                <i class="uil uil-estate"></i>
+                <p class="top__location"><%= tour.getLocation() %></p>
+            </span>
+        </div>
+        <div class="tour__img_overlay_bot">
+            <p class="bot__money">$<%= tour.getPrice() %></p>
+
+            <%-- Check if the element exists in the array --%>
+            <% 
+//                boolean exists = false;
+//                for (Tour userTour : userTours) {
+//                    if (userTour.getTourId() == tour.getTourId()) {
+//                      exists = true;
+//                        break;
+//                    }
+//                }
+//             if(exists == true){
+             %>
+
+
+            <!--<p class="board_tile active"><span class="gg-check" style="display: inline;"></span> Booked</p>-->
+
+            <% // }else{ %>
+
+            <form action="bookings" method="post">
                 <button class="bot__btn">Book Now</button>
-              </div>
-            </div>
-          </div>
+                <input type="hidden" name="tour_id" value="<%= tour.getTourId() %>" />
+            </form>
+
+            <% // } %>
+
+            <!--<a href="bookings?tour_id=<--% = tour.getTourId() %>" class="bot__btn" style="color: black">Book Now</a>-->
+        </div>
+    </div>
+</div> 
+<% } %>
+
+<% } else { %>
+<p>No user information found.</p>
+<% } %>
+
+

@@ -103,7 +103,7 @@ public class bookings extends HttpServlet {
             request.getRequestDispatcher("user_dashboard.jsp").forward(request, response);
 
         } else {
-            request.setAttribute("LogMsg", "Login failed. Please try again.");
+            request.setAttribute("LogMsg", "Please Login or Register to book a tour.");
 
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }

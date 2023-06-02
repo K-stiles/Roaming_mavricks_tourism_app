@@ -65,4 +65,7 @@
             30
         </session-timeout>
     </session-config>
+    <listener>
+        <listener-class>user.AppInitializer</listener-class>
+    </listener>
 </web-app>

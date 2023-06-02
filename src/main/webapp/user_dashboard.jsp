@@ -79,6 +79,13 @@ admin --%>
                                     <p class="tile__text">History</p>
                                 </a>
                             </li>
+                            
+                            <li>
+                                <a href="${pageContext.request.contextPath}/" class="board_tile">
+                                    <i class="uil uil-map"></i>
+                                    <p class="tile__text">Back to Home</p>
+                                </a>
+                            </li>
                         </ul>
                     </div>
 

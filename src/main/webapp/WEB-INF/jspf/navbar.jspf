@@ -1,55 +1,69 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
 
-
 <header class="navigation__header">
-      <div class="navigation__bar">
+    <div class="navigation__bar">
         <a href="#home" class="logo__link" >
-          <img
-            src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/logo.svg"
-            alt="brand logo"
-            class="nav__logo"
-          />
+            <img
+                src="http://localhost:8080/Roaming_mavricks_tourism_app/assets/logo.svg"
+                alt="brand logo"
+                class="nav__logo"
+                />
         </a>
-      
+
         <nav class="navigation__links">
-          <ul class="ul__navigation__links">
-            <li class="nav__link">
-              <a  class="active link" href="#home">Home</a>
-            </li>
-            <li class="nav__link">
-              <a class="link" href="#toursites">Tour sites</a>
-            </li>
-            <li class="nav__link">
-              <a class="link" href="#contactus">Contact</a>
-            </li>
-            <li class="nav__link">
-              <a class="link" href="#testimonial">Testimonial</a>
-            </li>
-            <li class="nav__link">
-              <a class="link" href="register">Register</a>
-            </li>
-            <li class="nav__link">
-              <a class="login_btn" href="login">Login</a>
-            </li>
-          </ul>
+            <ul class="ul__navigation__links">
+                <li class="nav__link">
+                    <a  class="active link" href="#home">Home</a>
+                </li>
+                <li class="nav__link">
+                    <a class="link" href="#toursites">Tour sites</a>
+                </li>
+                <li class="nav__link">
+                    <a class="link" href="#contactus">Contact</a>
+                </li>
+                <li class="nav__link">
+                    <a class="link" href="#testimonial">Testimonial</a>
+                </li>
+                <%-- Check if the session exists --%>
+                <% if (session != null && session.getAttribute("customerId") != null) { %>
+                <li class="nav__link">
+                    <a class="link" href="register">Dashboard</a>
+                </li>
+                <% } else { %>
+                <li class="nav__link">
+                    <a class="link" href="register">Register</a>
+                </li>
+                <li class="nav__link">
+                    <a class="login_btn" href="login">Login</a>
+                </li>
+                <% } %>
+            </ul>
         </nav>
 
-       <div  class="menu" style="font-size: 2rem;font-weight: bold; cursor:pointer"><a onClick="openNav()" class="close"> <i  class="uil uil-bars"></i></a> </div>
- 
+        <div  class="menu" style="font-size: 2rem;font-weight: bold; cursor:pointer"><a onClick="openNav()" class="close"> <i  class="uil uil-bars"></i></a> </div>
 
-      </div>
 
-      <div id="monile_menu" class="overlay">
-      <a onClick="closeNav()" class="close">&times;</a>
-      <div class="overlay__content">
-        <a class="overlay_link" href="#home">Home</a>
-        <a class="overlay_link" href="#toursites">Tour sites</a>
-        <a class="overlay_link" href="#contactus">Contact</a>
-        <a class="overlay_link" href="#testimonial">Testimonial</a>
-        <a class="btn" href="register">Register</a>
-        <a class="btn" href="login">Login</a>
-      </div>
-      </div>
-    </header>
+    </div>
+
+    <div id="monile_menu" class="overlay">
+        <a onClick="closeNav()" class="close">&times;</a>
+        <div class="overlay__content">
+            <a class="overlay_link" href="#home">Home</a>
+            <a class="overlay_link" href="#toursites">Tour sites</a>
+            <a class="overlay_link" href="#contactus">Contact</a>
+            <a class="overlay_link" href="#testimonial">Testimonial</a>
+
+            <%-- Check if the session exists --%>
+            <% if (session != null && session.getAttribute("customerId") != null) { %>
+            <a class="btn" href="login">Dashboard</a>
+            <% } else { %>
+            <a class="btn" href="register">Register</a>
+            <a class="btn" href="login">Login</a>
+            <% } %>
+
+
+        </div>
+    </div>
+</header>
 
