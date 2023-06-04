@@ -74,13 +74,13 @@ admin --%>
                             <!-- Tile 2-->
                             <li>
                                 <a href="#" class="board_tile active">
-                                    <i class="uil uil-map"></i>
+                                    <i class="uil uil-presentation-line"></i>
                                     <p class="tile__text">History</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="${pageContext.request.contextPath}/" class="board_tile">
-                                    <i class="uil uil-map"></i>
+                                    <i class="uil uil-estate"></i>
                                     <p class="tile__text">Back to Home</p>
                                 </a>
                             </li>

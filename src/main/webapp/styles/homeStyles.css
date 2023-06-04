@@ -271,14 +271,14 @@ a {
 }
 .p_text {
   font-size: 1rem;
-  font-weight: lighter;
+  font-weight: normal;
   text-transform: uppercase;
   max-width: 400px;
   margin: 0.6rem 0;
   text-align: center;
 }
 .h_text {
-  font-size: 2rem;
+  font-size: 4rem;
   font-weight: bolder;
   letter-spacing: normal;
   text-transform: uppercase;
@@ -449,7 +449,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: blue;
+  /* background-color: blue; */
 }
 .overlay a {
   display: block;
