@@ -72,22 +72,20 @@ input[type="password"] {
   outline: none;
   background: #fff;
 }
-.btn {
+.mobile_overlay__btn {
+  display: block;
+  width: 100%;
   color: white;
   border-radius: 4px;
   font-size: 1.1rem;
   font-weight: 700;
   padding: 16px 20px;
   margin: 8px 0;
-  border: none;
+  border: 2px solid var(--board);
   outline: none;
   cursor: pointer;
   width: 100%;
-  opacity: 0.9;
-  background-color: #610c63;
-}
-.btn:hover {
-  opacity: 1;
+  background-color: red;
 }
 
 input[type="text"]:focus,
