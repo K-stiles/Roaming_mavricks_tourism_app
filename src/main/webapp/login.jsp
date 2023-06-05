@@ -72,6 +72,7 @@
                 name="email"
                 id="email"
                 required
+                class="inputText"
               />
             </div>
 
@@ -85,7 +86,7 @@
                 name="password"
                 id="psw"
                 required
-                class="text_input"
+                class="inputText"
               />
             </div>
 

@@ -12,26 +12,22 @@
   </head>
 
   <body>
-      
-       <%-- Check if the session exists and the desired attribute is set --%>
-    <% if (session != null && (session.getAttribute("customerId") != null 
-    || session.getAttribute("tourID") != null )) { %>
-        <%-- Session is set, redirect to another JSP --%>
-        <% response.sendRedirect("login"); %>
-    <% } else { %>
-        <%-- Session is not set, display a message or perform other actions --%>
-        <main>
+    <%-- Check if the session exists and the desired attribute is set --%> <% if
+    (session != null && (session.getAttribute("customerId") != null ||
+    session.getAttribute("tourID") != null )) { %> <%-- Session is set, redirect
+    to another JSP --%> <% response.sendRedirect("login"); %> <% } else { %>
+    <%-- Session is not set, display a message or perform other actions --%>
+    <main>
       <section class="auth__section">
-          
         <% if( request.getAttribute("LogMsg") != null ){ %>
 
         <h5 style="color: red"><%= request.getAttribute("LogMsg") %></h5>
 
-        <% } %>
-        
-        <% if( request.getAttribute("LogMsg2") != null ){ %>
+        <% } %> <% if( request.getAttribute("LogMsg2") != null ){ %>
 
-        <h5 style="color: cornflowerblue"><%= request.getAttribute("LogMsg2") %></h5>
+        <h5 style="color: cornflowerblue">
+          <%= request.getAttribute("LogMsg2") %>
+        </h5>
 
         <% } %>
 
@@ -51,6 +47,7 @@
                 name="email"
                 id="email"
                 required
+                class="inputText"
               />
             </div>
 
@@ -64,6 +61,7 @@
                 name="password"
                 id="psw"
                 required
+                class="inputText"
               />
             </div>
 
@@ -76,11 +74,7 @@
         </form>
       </section>
     </main>
-        
-    <% } %>       
-        
+
+    <% } %>
   </body>
 </html>
-
-
-

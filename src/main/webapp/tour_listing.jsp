@@ -14,6 +14,28 @@ admin --%> <%@page contentType="text/html" pageEncoding="UTF-8"%>
             rel="stylesheet"
             href="http://localhost:8080/Roaming_mavricks_tourism_app/styles/styles.css"
             />
+            <style>
+                .navigation__links ul li a {
+                  display: inline-block;
+                  padding: 0.5rem 1.2rem;
+                  cursor: pointer;
+                  text-transform: capitalize;
+                  position: relative;
+                  color: var(--dark);
+                }
+                .login_btn {
+                  padding: 1rem 2rem;
+                  border-radius: 4px;
+                  color: var(--primary);
+                  background-color: var(--primary-light);
+                  border: 2px solid var(--primary);
+                  transition: color 0.3s ease, background-color 0.3s ease;
+                }
+                .login_btn:hover {
+                  background-color: var(--primary);
+                  color: var(--slate);
+                }
+              </style>
         <title>Creation and Tour Listing</title>
     </head>
     <body>
@@ -168,22 +190,22 @@ admin --%> <%@page contentType="text/html" pageEncoding="UTF-8"%>
                         <form action="tour_listing" method="post">
                             <label>
                                 NAME: *
-                                <input type="text" name="name" />
+                                <input type="text" name="name"  class="inputText" />
                             </label>
                             <label>
                                 LOCATION: *
-                                <input type="text" name="location" />
+                                <input type="text" name="location"  class="inputText"/>
                             </label>
                             <label>
                                 PRICE: *
-                                <input type="text" name="price" />
+                                <input type="text" name="price"  class="inputText"/>
                             </label>
                             <label>
                                 IMG URL: *
-                                <input type="text" name="imgUrl" />
+                                <input type="text" name="imgUrl"  class="inputText" />
                             </label>
                             <input type="hidden" name="action" value="tour" />
-                            <button type="submit">SAVE</button>
+                            <button type="submit" class="btn">SAVE</button>
                         </form>
                     </div>
 
