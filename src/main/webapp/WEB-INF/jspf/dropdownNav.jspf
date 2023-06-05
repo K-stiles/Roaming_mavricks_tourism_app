@@ -3,7 +3,7 @@
 <div class="dropdown">
   <button onclick="myFunction()" class="dropbtn">Login</button>
   <div id="myDropdown" class="dropdown-content">
-    <a href="#">User</a>
-                        <a href="#">Administrator</a>
+    <a href="login">User</a>
+                        <a href="admin">Administrator</a>
   </div>
 </div>
