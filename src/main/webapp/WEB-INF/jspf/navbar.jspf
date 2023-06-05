@@ -35,11 +35,11 @@
                 <li class="nav__link">
                     <a class="link" href="register">Register</a>
                 </li>
-                <li class="nav__link">
+<!--                <li class="nav__link">
                     <a class="login_btn" href="login">Login</a>
-                </li>
+                </li>-->
                 <div class="dropdown">
-                    <button onclick="openDropDown()" class="dropbtn">new Login</button>
+                    <button onclick="openDropDown()" class="dropbtn">Login</button>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="login">User</a>
                         <a href="admin">Administrator</a>

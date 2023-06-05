@@ -87,11 +87,29 @@ input[type="password"] {
   width: 100%;
   background-color: red;
 }
-
+.btn {
+  display: block;
+  width: 100%;
+  color: white;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: 2px solid var(--board);
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+  background-color: var(--primary);
+}
+label {
+  display: block;
+}
 input[type="text"]:focus,
 input[type="password"]:focus {
   background-color: #ecdeec;
   outline: none;
+  /* width: 100; */
 }
 
 /* dashboard */

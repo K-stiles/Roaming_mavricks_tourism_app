@@ -8,6 +8,28 @@
       rel="stylesheet"
       href="http://localhost:8080/Roaming_mavricks_tourism_app/styles/styles.css"
     />
+    <style>
+      .navigation__links ul li a {
+        display: inline-block;
+        padding: 0.5rem 1.2rem;
+        cursor: pointer;
+        text-transform: capitalize;
+        position: relative;
+        color: var(--dark);
+      }
+      .login_btn {
+        padding: 1rem 2rem;
+        border-radius: 4px;
+        color: var(--primary);
+        background-color: var(--primary-light);
+        border: 2px solid var(--primary);
+        transition: color 0.3s ease, background-color 0.3s ease;
+      }
+      .login_btn:hover {
+        background-color: var(--primary);
+        color: var(--slate);
+      }
+    </style>
     <title>Tourism App | Login</title>
   </head>
   <body>
@@ -63,6 +85,7 @@
                 name="password"
                 id="psw"
                 required
+                class="text_input"
               />
             </div>
 
